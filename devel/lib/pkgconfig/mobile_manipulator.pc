@@ -1,8 +1,0 @@
-prefix=/home/aditya/manipulator_ws/devel
-
-Name: mobile_manipulator
-Description: Description of mobile_manipulator
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/aditya/manipulator_ws/devel/lib 
-Requires: 

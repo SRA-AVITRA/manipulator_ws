@@ -1,2 +1,0 @@
-mobile_manipulator
--DCATKIN_DEVEL_PREFIX=/home/aditya/manipulator_ws/devel -DCMAKE_INSTALL_PREFIX=/home/aditya/manipulator_ws/install -G Unix Makefiles
