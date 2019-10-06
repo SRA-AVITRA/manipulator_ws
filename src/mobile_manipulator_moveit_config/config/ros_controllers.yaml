@@ -16,8 +16,6 @@ mobile_manipulator:
       - wrist_pitch
       - wrist_yaw
       - wrist_roll
-      - wrist_yaw
-      - wrist_roll
     sim_control_mode: 1  # 0: position, 1: velocity
 # Publish all joint states
 # Creates the /joint_states topic necessary in ROS
@@ -29,40 +27,6 @@ mobile_manipulator:
   arm_position_controller:
     type: position_controllers/JointPositionController
     joints:
-      - shoulder_yaw
-      - shoulder_pitch
-      - elbow
-      - wrist_pitch
-      - wrist_yaw
-      - wrist_roll
+      []
     gains:
-      shoulder_yaw:
-        p: 100
-        d: 1
-        i: 1
-        i_clamp: 1
-      shoulder_pitch:
-        p: 100
-        d: 1
-        i: 1
-        i_clamp: 1
-      elbow:
-        p: 100
-        d: 1
-        i: 1
-        i_clamp: 1
-      wrist_pitch:
-        p: 100
-        d: 1
-        i: 1
-        i_clamp: 1
-      wrist_yaw:
-        p: 100
-        d: 1
-        i: 1
-        i_clamp: 1
-      wrist_roll:
-        p: 100
-        d: 1
-        i: 1
-        i_clamp: 1
+      {}

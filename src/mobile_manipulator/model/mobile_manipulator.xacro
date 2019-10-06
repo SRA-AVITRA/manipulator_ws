@@ -463,11 +463,11 @@
     <xacro:square_plate_Visual trans="0.02 -0.0156 0.0737" rpy="3.14 1.57 -1.57"/>
     <xacro:square_plate_Collision trans="0.02 -0.0156 0.0737" rpy="3.14 1.57 -1.57"/>
   </link>
-    <link name="square_plate_2">
+    <!--link name="square_plate_2">
     <xacro:square_plate_Inertial trans="-0.02 -0.0156 0.0737" rpy="3.14 1.57 -1.57"/>
     <xacro:square_plate_Visual trans="-0.02 -0.0156 0.0737" rpy="3.14 1.57 -1.57"/>
     <xacro:square_plate_Collision trans="-0.02 -0.0156 0.0737" rpy="3.14 1.57 -1.57"/>
-  </link>
+  </link-->
 
 
   <link name="AXB2B_SQ_Y">
@@ -493,7 +493,7 @@
   <!--xacro:FxdJoint id="bot_joint" parent="bot" child="shoulder_yaw_motor"/-->
   <xacro:Revjoint id="shoulder_yaw" trans="0 0.188 0.2577" rpy="0 0 3.14" parent="shoulder_yaw_motor" child="shoulder_bracket" axis="0 0 1" l="-3.0357" u="3.24426" v="1.0"/>
   <!-- 0 0 0.025 -->
-  <xacro:Revjoint id="shoulder_pitch" trans="0 0 0.035" rpy="0 0 0" parent="shoulder_bracket" child="shoulder_pitch_motor" axis="1 0 0" l="-1.973232422" u="1.916503906" v="1.0"/>
+  <xacro:Revjoint id="shoulder_pitch" trans="0 0 0.035" rpy="0 0.0 0" parent="shoulder_bracket" child="shoulder_pitch_motor" axis="1 0 0" l="-1.973232422" u="1.916503906" v="1.0"/>
   <xacro:FxdJoint id="s1_l2" trans="0 0 0" parent="shoulder_pitch_motor" child="biscep"/>
   <xacro:FxdJoint id="l2_l2B" trans="0 0 0" parent="biscep" child="elbow_bracket"/>
   <xacro:Revjoint id="elbow" trans="0 0 ${0.052 + (length) + 0.038}" rpy="0 0 0" parent="elbow_bracket" child="elbow_motor" axis="1 0 0" l="-1.99" u="1.971699219" v="1.0"/>
@@ -502,10 +502,8 @@
   <xacro:Revjoint id="wrist_pitch" trans="0 0 ${length + 0.052 + 0.054}" rpy="0 0 0" parent="wrist_bracket" child="wrist_pitch_motor" axis="1 0 0" l="-2.36344086" u="2.368556533" v="1.0"/>
   
   <xacro:FxdJoint id="WP_SQ1" trans="0 0 0" parent="wrist_pitch_motor" child="square_plate_1" />
-  <xacro:FxdJoint id="WP_SQ2" trans="0 0 0" parent="wrist_pitch_motor" child="square_plate_2" />
 
   <xacro:FxdJoint id="SQ1_AXB2B" trans="0 0 0" parent="square_plate_1" child="AXB2B_SQ_Y" />
-  <xacro:FxdJoint id="SQ2_AXB2B" trans="0 0 0" parent="square_plate_2" child="AXB2B_SQ_Y" />
 
   
   <xacro:FxdJoint id="AXB2B_Y" trans="0 0.07 0.055" parent="AXB2B_SQ_Y" child="wrist_yaw_motor" />
