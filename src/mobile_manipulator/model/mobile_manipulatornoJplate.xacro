@@ -510,7 +510,7 @@
   
   <xacro:FxdJoint id="AXB2B_Y" trans="0 0.07 0.055" parent="AXB2B_SQ_Y" child="wrist_yaw_motor" />
 
-  <xacro:Revjoint id="wrist yaw" trans="0 -0.0035 -0.0150" rpy="0 3.14 0" parent="wrist_yaw_motor" child="AXBrak_Y_R" axis="0 0 1" l="-2" u="+2" v="1.0"/> 
+  <xacro:Revjoint id="wrist_yaw" trans="0 -0.0035 -0.0150" rpy="0 3.14 0" parent="wrist_yaw_motor" child="AXBrak_Y_R" axis="0 0 1" l="-2" u="+2" v="1.0"/> 
   
   <xacro:FxdJoint id="AXBYR_R" trans="0 0 0" parent="AXBrak_Y_R" child="wrist_roll_motor"/>
   <xacro:Revjoint id="wrist_roll" trans="0 0.0 0.0409163" rpy="0 3.14 0" parent="wrist_roll_motor" child="gripper" axis="0 1 0" l="-2" u="+2" v="1.0"/>  

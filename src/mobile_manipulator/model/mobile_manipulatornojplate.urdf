@@ -417,7 +417,7 @@
     <parent link="AXB2B_SQ_Y"/>
     <child link="wrist_yaw_motor"/>
   </joint>
-  <joint name="wrist yaw" type="revolute">
+  <joint name="wrist_yaw" type="revolute">
     <origin rpy="0 3.14 0" xyz="0 -0.0035 -0.0150"/>
     <parent link="wrist_yaw_motor"/>
     <child link="AXBrak_Y_R"/>
