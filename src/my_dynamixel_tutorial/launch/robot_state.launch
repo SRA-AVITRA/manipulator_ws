@@ -1,0 +1,21 @@
+<launch>
+
+<!-- THIS FILE NEEDS ALOT OF CHANGES!! -->
+
+  <param name="robot_description" command="$(find xacro)/xacro '$(find mobile_manipulator)/model/mobile_manipulatornoJplate.xacro' --inorder" />
+
+  <node name="State_Publisher" pkg="my_dynamixel_tutorial" type="state_publisher.py" /> 
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    		<param name="/use_gui" value="false"/>
+    		<rosparam param="/source_list">[/robot/joint_states]</rosparam>
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="map_base_tf" args="0 0 0 0 0 0 /map /shoulder_yaw_motor 5" />
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+	respawn="false" output="screen">
+  </node>
+
+</launch>

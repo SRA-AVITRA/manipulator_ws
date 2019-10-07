@@ -1,0 +1,28 @@
+<launch>
+    
+    <!-- <include file="$(find my_dynamixel_tutorial)/launch/controller_manager.launch"/>
+    <include file="$(find mobile_manipulator_moveit_config)/launch/move_group.launch">
+        <arg name="publish_monitored_planning_scene" value="true" />
+    </include> -->
+    
+    <node pkg="timed_roslaunch" type="timed_roslaunch.sh"
+        args="0  my_dynamixel_tutorial controller_manager.launch"
+        name="controller_manager" output="screen" />
+    
+    <node pkg="timed_roslaunch" type="timed_roslaunch.sh"
+        args="4  my_dynamixel_tutorial robot_state.launch"
+        name="robot_state" output="screen" />
+    
+    <node pkg="timed_roslaunch" type="timed_roslaunch.sh"
+        args="8 my_dynamixel_tutorial start_meta_controller.launch"
+        name="metacontroller" output="screen" />
+        
+    <node pkg="timed_roslaunch" type="timed_roslaunch.sh"
+        args="12  mobile_manipulator_moveit_config move_group.launch publish_monitored_planning_scene:=true"
+        name="move_group" output="screen" />
+        <rosparam command="load" file="$(find mobile_manipulator_moveit_config)/config/kinematics.yaml"/>
+    <node pkg="timed_roslaunch" type="timed_roslaunch.sh"
+        args="18  my_dynamixel_tutorial start_tilt_controller.launch"
+        name="tilt_controller" output="screen" />
+    
+</launch>

@@ -1,0 +1,92 @@
+shoulder_yaw_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: shoulder_yaw
+    joint_speed: 1.75
+    motor:
+        id: 1
+        init: 2048
+        min: 0
+        max: 4096
+
+shoulder_pitch_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller_dual_motor
+        type: JointPositionControllerDual
+    joint_name: shoulder_pitch
+    joint_speed: 1.75
+    motor_master:
+        id: 2
+        init: 2048
+        min: 713
+        max: 3250
+    motor_slave:
+        id: 7
+
+elbow_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: elbow
+    joint_speed: 1.75
+    motor:
+        id: 3
+        init: 2048
+        min: 923
+        max: 3508
+        
+wrist_pitch_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: wrist_pitch
+    joint_speed: 1.75
+    motor:
+        id: 4
+        init: 512
+        min: 50
+        max: 975
+
+wrist_yaw_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: wrist_yaw
+    joint_speed: 1.75
+    motor:
+        id: 5
+        init: 512
+        min: 0
+        max: 1024  
+
+wrist_roll_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: wrist_roll
+    joint_speed: 1.75
+    motor:
+        id: 6
+        init: 512
+        min: 0
+        max: 1024
+
+gripper_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: gripper_motor
+    joint_speed: 1.75
+    motor:
+        id: 8
+        init: 530
+        min: 548
+        max: 738
