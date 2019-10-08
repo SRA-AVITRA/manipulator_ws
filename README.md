@@ -21,7 +21,7 @@ Soon to come! Let's get everything working first. I realize this is against rule
 ```roslaunch mobile_manipulator_moveit_config demo.launch```
 4. Motion planning using Rviz done
 
-##Things to do
+## Things to do
 
 1. IK FAST plugin
 2. Interfacing Dynamixel with moveIt 6dof
