@@ -60,19 +60,19 @@
   </link>
   <link name="shoulder_pitch_motor">
     <inertial>
-      <origin rpy="1.57 -3.14 1.57" xyz="0 0 0"/>
+      <origin rpy="0 0 1.57" xyz="0 0 0"/>
       <mass value="0.140"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="1.57 -3.14 1.57" xyz="0 0 0"/>
+      <origin rpy="0.0 0.0 1.57" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/dynamixel_x64series.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="1.57 -3.14 1.57" xyz="0 0 0"/>
+      <origin rpy="0 0 1.57" xyz="0 0 0"/>
       <geometry>
         <box size="0.041 0.0602 0.1480"/>
       </geometry>
@@ -80,19 +80,19 @@
   </link>
   <link name="biscep">
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0.099"/>
+      <origin rpy="0 1.57 0" xyz="0.099 0 0"/>
       <mass value="0.00048"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0.099"/>
+      <origin rpy="0 1.57 0" xyz="0.099 0 0"/>
       <geometry>
         <box size="0.04 0.04 0.096"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.099"/>
+      <origin rpy="0 1.57 0" xyz="0.099 0 0"/>
       <geometry>
         <box size="0.04 0.04 0.096"/>
       </geometry>
@@ -100,19 +100,19 @@
   </link>
   <link name="elbow_bracket">
     <inertial>
-      <origin rpy="0 3.14 0" xyz="0 0 0.148"/>
+      <origin rpy="0 -1.57 0" xyz="0.148 0 0"/>
       <mass value="0.00712"/>
       <inertia ixx="0.00000174511" ixy="0.0" ixz="0.0" iyy="0.00000379922" iyz="0.0" izz="0.00000357521"/>
     </inertial>
     <visual>
-      <origin rpy="0 3.14 0" xyz="0 0 0.148"/>
+      <origin rpy="0 -1.57 0" xyz="0.148 0 0"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/FR05-H101K.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="0 3.14 0" xyz="0 0 0.148"/>
+      <origin rpy="0 -1.57 0" xyz="0.148 0 0"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/FR05-H101K.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -120,19 +120,19 @@
   </link>
   <link name="elbow_motor">
     <inertial>
-      <origin rpy="1.57 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 1.57" xyz="0 0 0"/>
       <mass value="0.140"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="1.57 3.14 -1.57" xyz="0 0 0"/>
+      <origin rpy="0 0 1.57" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/dynamixel_x64series.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="1.57 3.14 -1.57" xyz="0 0 0"/>
+      <origin rpy="0 0 1.57" xyz="0  0 0"/>
       <geometry>
         <box size="0.041 0.0402 0.0611"/>
       </geometry>
@@ -140,19 +140,19 @@
   </link>
   <link name="forearm">
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0.1"/>
+      <origin rpy="0 1.57 0" xyz="0.1 0 0"/>
       <mass value="0.00048"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0.1"/>
+      <origin rpy="0 1.57 0" xyz="0.1 0 0"/>
       <geometry>
         <box size="0.04 0.04 0.096"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.1"/>
+      <origin rpy="0 1.57 0" xyz="0.1 0 0"/>
       <geometry>
         <box size="0.04 0.04 0.096"/>
       </geometry>
@@ -160,19 +160,19 @@
   </link>
   <link name="wrist_bracket">
     <inertial>
-      <origin rpy="1.57 0 1.57" xyz="0 0 0.202"/>
+      <origin rpy="0 0 -1.57" xyz="0.202 0 0"/>
       <mass value="0.00712"/>
       <inertia ixx="0.00000174511" ixy="0.0" ixz="0.0" iyy="0.00000379922" iyz="0.0" izz="0.00000357521"/>
     </inertial>
     <visual>
-      <origin rpy="1.57 0 1.57" xyz="0 0 0.202"/>
+      <origin rpy="0 0 -1.57" xyz="0.202 0 0"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/F4.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="1.57 0 1.57" xyz="0 0 0.202"/>
+      <origin rpy="0 0 -1.57" xyz="0.202 0 0"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/F4.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -180,19 +180,19 @@
   </link>
   <link name="wrist_pitch_motor">
     <inertial>
-      <origin rpy="-1.57 0 -1.57" xyz="0 0 0"/>
+      <origin rpy="0 0 1.57" xyz="0 0 0"/>
       <mass value="0.05573"/>
       <inertia ixx="0.00001611154" ixy="0.00000001397" ixz="0.0" iyy="0.00000888743" iyz="0.00000015948" izz="0.00001354172"/>
     </inertial>
     <visual>
-      <origin rpy="-1.57 0 -1.57" xyz="0 0 0"/>
+      <origin rpy="0 0 1.57" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/AX-12_18A - dynamixel_AXseries-1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="-1.57 0 -1.57" xyz="0 0 0"/>
+      <origin rpy="0 0 1.57" xyz="0 0 0"/>
       <geometry>
         <box size="0.032 0.04 0.05"/>
       </geometry>
@@ -200,19 +200,19 @@
   </link>
   <link name="wrist_yaw_motor">
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0.0 0.0"/>
+      <origin rpy="0 1.57 0" xyz="0.055 0.0 -0.056"/>
       <mass value="0.05573"/>
       <inertia ixx="0.00001611154" ixy="0.00000001397" ixz="0.0" iyy="0.00000888743" iyz="0.00000015948" izz="0.00001354172"/>
     </inertial>
     <visual>
-      <origin rpy="0 3.14 0" xyz="0 0.0 0.0"/>
+      <origin rpy="0 1.57 0" xyz="0.055 0.0 -0.056"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/AX-12_18A - dynamixel_AXseries-1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="0 3.14 0" xyz="0 0.0 0.0"/>
+      <origin rpy="0 1.57 0" xyz="0.055 0.0 -0.056"/>
       <geometry>
         <box size="0.032 0.04 0.05"/>
       </geometry>
@@ -245,19 +245,19 @@
   </link-->
   <link name="square_plate_1">
     <inertial>
-      <origin rpy="3.14 1.57 -1.57" xyz="0.02 -0.0156 0.0737"/>
+      <origin rpy="-1.57 0 0" xyz="0.035 -0.0156 0.02"/>
       <mass value="0.140"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="3.14 1.57 -1.57" xyz="0.02 -0.0156 0.0737"/>
+      <origin rpy="-1.57 0 0" xyz="0.035 -0.0156 0.02"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/square_plate.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="3.14 1.57 -1.57" xyz="0.02 -0.0156 0.0737"/>
+      <origin rpy="-1.57 0 0" xyz="0.035 -0.0156 0.0"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/square_plate.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -270,19 +270,19 @@
   </link-->
   <link name="AXB2B_SQ_Y">
     <inertial>
-      <origin rpy="0 1.57 3.14" xyz="0.02 0.048 0.0737"/>
+      <origin rpy="0 0 3.14" xyz="0.0737 0.048 -0.02"/>
       <mass value="0.140"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="0 1.57 3.14" xyz="0.02 0.048 0.0737"/>
+      <origin rpy="0 0 3.14" xyz="0.0737 0.048 -0.02"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/axback.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="0 1.57 3.14" xyz="0.02 0.048 0.0737"/>
+      <origin rpy="0 0 3.14" xyz="0.0737 0.048 -0.02"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/axback.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -311,19 +311,19 @@
   </link>
   <link name="gripper">
     <inertial>
-      <origin rpy="-3.14 3.14 -3.14" xyz="0.007654 0.085866 -0.03272"/>
+      <origin rpy="1.57 0 0" xyz="0.006 0.035 0.085"/>
       <mass value="0.140"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="-3.14 3.14 -3.14" xyz="0.007654 0.085866 -0.03272"/>
+      <origin rpy="1.57 0 0" xyz="0.006 0.035 0.085"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/gripper.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="-3.14 3.14 -3.14" xyz="0.007654 0.085866 -0.03272"/>
+      <origin rpy="1.57 0 0" xyz="0.006 0.035 0.085"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/gripper.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -337,10 +337,10 @@
     <limit effort="30" lower="-3.0357" upper="3.24426" velocity="1.0"/>
   </joint>
   <joint name="shoulder_pitch" type="revolute">
-    <origin rpy="0 0.0 0" xyz="0 0 0.035"/>
+    <origin rpy="0 -1.57 0.0" xyz="0 0 0.035"/>
     <parent link="shoulder_bracket"/>
     <child link="shoulder_pitch_motor"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="0 0 1"/>
     <limit effort="30" lower="-1.973232422" upper="1.916503906" velocity="1.0"/>
   </joint>
   <joint name="s1_l2" type="fixed">
@@ -354,10 +354,10 @@
     <child link="elbow_bracket"/>
   </joint>
   <joint name="elbow" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0 0.186"/>
+    <origin rpy="0 0 0" xyz="0.186 0 0"/>
     <parent link="elbow_bracket"/>
     <child link="elbow_motor"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="0 0 1"/>
     <limit effort="30" lower="-1.99" upper="1.971699219" velocity="1.0"/>
   </joint>
   <joint name="e_l3" type="fixed">
@@ -371,10 +371,10 @@
     <child link="wrist_bracket"/>
   </joint>
   <joint name="wrist_pitch" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0 0.202"/>
+    <origin rpy="0 0 0" xyz="0.202 0 0 "/>
     <parent link="wrist_bracket"/>
     <child link="wrist_pitch_motor"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="0 0 1"/>
     <limit effort="30" lower="-2.36344086" upper="2.368556533" velocity="1.0"/>
   </joint>
   <joint name="WP_SQ1" type="fixed">
@@ -393,7 +393,7 @@
     <child link="wrist_yaw_motor"/>
   </joint>
   <joint name="wrist_yaw" type="revolute">
-    <origin rpy="0 3.14 0" xyz="0 -0.0035 -0.0150"/>
+    <origin rpy="0 -1.57 0" xyz="0.04 0 -0.055"/>
     <parent link="wrist_yaw_motor"/>
     <child link="AXBrak_Y_R"/>
     <axis xyz="0 0 1"/>
@@ -405,10 +405,10 @@
     <child link="wrist_roll_motor"/>
   </joint>
   <joint name="wrist_roll" type="revolute">
-    <origin rpy="0 3.14 0" xyz="0 0.0 0.0409163"/>
+    <origin rpy="-1.57 3.14 0" xyz="0 0.0 0.0409163"/>
     <parent link="wrist_roll_motor"/>
     <child link="gripper"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 0 1"/>
     <limit effort="30" lower="-2" upper="+2" velocity="1.0"/>
   </joint>
   <!--xacro:FxdJoint id="roll_plate_gripper" parent="roll_j_plate" child="gripper" /-->
