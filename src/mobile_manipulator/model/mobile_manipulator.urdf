@@ -334,14 +334,14 @@
     <parent link="shoulder_yaw_motor"/>
     <child link="shoulder_bracket"/>
     <axis xyz="0 0 1"/>
-    <limit effort="30" lower="-3.0357" upper="3.24426" velocity="1.0"/>
+    <limit effort="30" lower="-3.14" upper="3.14" velocity="1.0"/>
   </joint>
   <joint name="shoulder_pitch" type="revolute">
     <origin rpy="0 -1.57 0.0" xyz="0 0 0.035"/>
     <parent link="shoulder_bracket"/>
     <child link="shoulder_pitch_motor"/>
     <axis xyz="0 0 1"/>
-    <limit effort="30" lower="-1.973232422" upper="1.916503906" velocity="1.0"/>
+    <limit effort="30" lower="-1.6592" upper="1.727" velocity="1.0"/>
   </joint>
   <joint name="s1_l2" type="fixed">
     <origin xyz="0 0 0"/>
@@ -358,7 +358,7 @@
     <parent link="elbow_bracket"/>
     <child link="elbow_motor"/>
     <axis xyz="0 0 1"/>
-    <limit effort="30" lower="-1.99" upper="1.971699219" velocity="1.0"/>
+    <limit effort="30" lower="-1.9262" upper="1.934" velocity="1.0"/>
   </joint>
   <joint name="e_l3" type="fixed">
     <origin xyz="0 0 0"/>
@@ -375,7 +375,7 @@
     <parent link="wrist_bracket"/>
     <child link="wrist_pitch_motor"/>
     <axis xyz="0 0 1"/>
-    <limit effort="30" lower="-2.36344086" upper="2.368556533" velocity="1.0"/>
+    <limit effort="30" lower="-2.29" upper="0.718" velocity="1.0"/>
   </joint>
   <joint name="WP_SQ1" type="fixed">
     <origin xyz="0 0 0"/>
@@ -397,7 +397,7 @@
     <parent link="wrist_yaw_motor"/>
     <child link="AXBrak_Y_R"/>
     <axis xyz="0 0 1"/>
-    <limit effort="30" lower="-2" upper="+2" velocity="1.0"/>
+    <limit effort="30" lower="-1.43" upper="+2.11" velocity="1.0"/>
   </joint>
   <joint name="AXBYR_R" type="fixed">
     <origin xyz="0 0 0"/>
@@ -409,7 +409,7 @@
     <parent link="wrist_roll_motor"/>
     <child link="gripper"/>
     <axis xyz="0 0 1"/>
-    <limit effort="30" lower="-2" upper="+2" velocity="1.0"/>
+    <limit effort="30" lower="-2.617" upper="+2.617" velocity="1.0"/>
   </joint>
   <!--xacro:FxdJoint id="roll_plate_gripper" parent="roll_j_plate" child="gripper" /-->
 </robot>
