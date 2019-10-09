@@ -18,6 +18,7 @@
     <node name="controller_spawner_meta" pkg="dynamixel_controllers" type="controller_spawner.py"
           args="--manager=dxl_manager
                 --type=meta
+                arm_controller
                 shoulder_yaw_controller
                 shoulder_pitch_controller
                 elbow_controller
