@@ -19,11 +19,6 @@
     <xacro:BotCollision trans="0 0 0" rpy="0 0 0"/>
   </link-->
   <link name="shoulder_yaw_motor">
-    <inertial>
-      <origin rpy="0 0 0 " xyz="0 0 0"/>
-      <mass value="0.140"/>
-      <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
-    </inertial>
     <visual>
       <origin rpy="0 0 0 " xyz="0 0.188 0.2349"/>
       <geometry>
