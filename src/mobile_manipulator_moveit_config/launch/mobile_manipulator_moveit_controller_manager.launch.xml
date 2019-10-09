@@ -3,6 +3,9 @@
  <arg name="moveit_controller_manager" default="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
  <param name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
  <!-- load controller_list -->
+
+ <arg name="use_controller_manager" default="true" />
+ <param name="use_controller_manager" value="$(arg use_controller_manager)" />
+
  <rosparam file="$(find mobile_manipulator_moveit_config)/config/controllers.yaml"/>
- 
 </launch>

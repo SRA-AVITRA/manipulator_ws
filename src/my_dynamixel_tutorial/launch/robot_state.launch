@@ -2,7 +2,7 @@
 
 <!-- THIS FILE NEEDS ALOT OF CHANGES!! -->
 
-  <param name="robot_description" command="$(find xacro)/xacro '$(find mobile_manipulator)/model/mobile_manipulatornoJplate.xacro' --inorder" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find mobile_manipulator)/model/mobile_manipulator.xacro' --inorder" />
 
   <node name="State_Publisher" pkg="my_dynamixel_tutorial" type="state_publisher.py" /> 
 

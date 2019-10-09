@@ -24,7 +24,7 @@ shoulder_pitch_controller:
         min: 713
         max: 3250
     motor_slave:
-        id: 7
+        id: 8
 
 elbow_controller:
     controller:
@@ -86,7 +86,7 @@ gripper_controller:
     joint_name: gripper_motor
     joint_speed: 1.75
     motor:
-        id: 8
+        id: 7
         init: 530
         min: 548
         max: 738

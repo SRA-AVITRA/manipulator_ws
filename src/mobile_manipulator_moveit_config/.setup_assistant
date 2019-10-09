@@ -1,11 +1,11 @@
 moveit_setup_assistant_config:
   URDF:
     package: mobile_manipulator
-    relative_path: model/mobile_manipulatornoJplate.xacro
+    relative_path: model/mobile_manipulator.urdf
     xacro_args: "--inorder "
   SRDF:
     relative_path: config/mobile_manipulator.srdf
   CONFIG:
-    author_name: aditya
-    author_email: adityagawali13@gmail.com
-    generated_timestamp: 1570349949
+    author_name: shambhavikuthe
+    author_email: kutheshambhavi1@gmail.com
+    generated_timestamp: 1570436173
