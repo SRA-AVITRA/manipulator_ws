@@ -12,13 +12,17 @@ from moveit_commander.conversions import pose_to_list, list_to_pose
 import tf
 
 def change_joint_angles(group, joint_goal):
-    # joint_goal = group.get_current_joint_values()
-    group.go(joint_goal, wait=True)
+    joints = group.get_current_joint_values()
+    for i in range(len(joint_goal)):
+        joints[i] = joint_goal[i]
+    group.go(joints, wait=True)
     group.stop()
-    print "\nJoint angles moved to ", joint_goal
+    print "\nJoint angles moved to ", joints
 
 def change_end_pose(group, input_pose):
-    end_goal = pose_to_list(group.get_current_pose().pose)
+    pose_goal = geometry_msgs.msg.Pose()
+    end_goal = pose_to_list(pose_goal)
+    
     for i, ele in enumerate(input_pose):
         if ele != None:
             end_goal[i] = ele
@@ -31,15 +35,14 @@ def change_end_pose(group, input_pose):
     group.stop()
     group.clear_pose_targets()
 
-roll = 0
-pitch = 0
-yaw = 0
-
+roll = 1.57
+pitch = 1.57
+yaw = 1.57
 
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
 
-home = [0.3, 0.3, 0.3, quat[3], quat[0],quat[1],quat[2]]
-pre_grasp = [0.0039984, 0.47637, 0.36712, 0.0028514, -0.00081611, -0.0069344, 0.99997]
+home = [0.0, 0.0, 0.4, quat[0], quat[1],quat[2],quat[3]]
+
 moveit_commander.roscpp_initialize(sys.argv)
 rospy.init_node('inverse_kinematics', anonymous=True)
 robot = moveit_commander.RobotCommander()
@@ -55,13 +58,6 @@ group_arm.set_goal_orientation_tolerance(0.0001)
 
 eef_link = group_arm.get_end_effector_link()
 group_names = robot.get_group_names()
-
-
-end_effector_coordinate = [0.0039984, 0.47637, 0.36712]
-
-quaternion = [0.0028514, -0.00081611, -0.0069344, 0.99997]
-
-end_effector_coordinate.extend(quaternion)
 
 if (len(sys.argv) == 2):
     if (sys.argv[1] == "home"):
