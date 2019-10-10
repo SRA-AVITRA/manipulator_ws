@@ -29,7 +29,7 @@ pitch = 1.57
 yaw = 1.57
 
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
-print quat
+
 if (len(sys.argv) == 2):
     if(sys.argv[1]== "home"): 
         joint_goal =group.get_current_joint_values()
@@ -48,24 +48,28 @@ if (len(sys.argv) == 2):
         group.stop()
 
 
+else:
+    pose_goal = geometry_msgs.msg.Pose()
+    pose_goal.orientation.w = quat[3]
+    pose_goal.orientation.x = quat[0]
+    pose_goal.orientation.y = quat[1]
+    pose_goal.orientation.z = quat[2]
 
+    pose_goal.position.x = 0.3
+    pose_goal.position.y = 0.3
+    pose_goal.position.z = 0.3
 
-pose_goal = geometry_msgs.msg.Pose()
-pose_goal.orientation.w = quat[3]
-pose_goal.orientation.x = quat[0]
-pose_goal.orientation.y = quat[1]
-pose_goal.orientation.z = quat[2]
+    group.set_pose_target(pose_goal)
 
-pose_goal.position.x = 0
-pose_goal.position.y = 0
-pose_goal.position.z = 0
-group.set_pose_target(pose_goal)
+    plan = group.go(wait=True)
+    if(plan):
+        print "MOVED"
+    else:
+        print "FAILED"
 
-plan = group.go(wait=True)
-# Calling `stop()` ensures that there is no residual movement
-group.stop()
-# It is always good to clear your targets after planning with poses.
-# Note: there is no equivalent function for clear_joint_value_targets()
-group.clear_pose_targets()
-print "ROBOT STATE :"
-print robot.get_current_state()
+    # Calling `stop()` ensures that there is no residual movement
+    group.stop()
+    # It is always good to clear your targets after planning with poses.
+    # Note: there is no equivalent function for clear_joint_value_targets()
+    group.clear_pose_targets()
+
