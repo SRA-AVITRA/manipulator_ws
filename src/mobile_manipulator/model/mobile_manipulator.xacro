@@ -381,13 +381,13 @@
 <!-- LINKS -->
 
   <link name="bot">
-    <xacro:BotInertial trans="0 0 0" rpy="0 0 -1.57"/>  
+    <!--<xacro:BotInertial trans="0 0 0" rpy="0 0 -1.57"/>-->  
     <xacro:BotVisual trans="0 0 0" rpy="0 0 -1.57"/>
     <xacro:BotCollision trans="0 0 0" rpy="0 0 -1.57"/>
   </link>
  
   <link name="shoulder_yaw_motor">
-    <!--xacro:MXInertial trans="0 0 0" rpy="0 0 0 "/-->  
+    <xacro:MXInertial trans="0 0 0" rpy="0 0 0 "/>  
     <xacro:MXVisual trans="0 0.188 0.2349" rpy="0 0 0 "/>
     <xacro:MXCollision trans="0 0.188 0.2349" rpy="0 0 0"/>
   </link>
