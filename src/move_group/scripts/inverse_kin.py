@@ -43,6 +43,8 @@ quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
 
 home = [0.0, 0.0, 0.4, quat[0], quat[1],quat[2],quat[3]]
 
+zdownby1_5 = [0.114535965537,-0.000209275828715,0.516932398762,-0.530234925441,-0.54221513755,0.458969531642,0.462818147308]
+
 moveit_commander.roscpp_initialize(sys.argv)
 rospy.init_node('inverse_kinematics', anonymous=True)
 robot = moveit_commander.RobotCommander()
@@ -60,14 +62,14 @@ eef_link = group_arm.get_end_effector_link()
 group_names = robot.get_group_names()
 
 if (len(sys.argv) == 2):
-    if (sys.argv[1] == "home"):
-        change_end_pose(group_arm, home)
-    elif(sys.argv[1] == "pre_grasp_f"):
+    if (sys.argv[1] == "ztest"):
+        change_end_pose(group_arm, zdownby1_5)
+    elif(sys.argv[1] == "home"):
        change_joint_angles(group_arm, [0, 0, 0, 0, 0, 0])
     elif(sys.argv[1] == "pre_grasp_i"):
         change_end_pose(group_arm, pre_grasp)
     else:
         "Supported Arguments : home"
 else:        
-    change_end_pose(group_arm, end_effector_coordinate)
+    change_end_pose(group_arm, home)
 
