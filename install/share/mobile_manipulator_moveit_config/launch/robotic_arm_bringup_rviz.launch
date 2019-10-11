@@ -1,0 +1,7 @@
+
+<launch> 
+ 
+	<!-- moveit launch file -->
+  	<include file="$(find mobile_manipulator_moveit_config)/launch/moveit_planning_execution.launch" />    
+
+</launch>

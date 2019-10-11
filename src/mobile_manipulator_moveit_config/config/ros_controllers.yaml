@@ -22,44 +22,20 @@ joint_state_controller:
   type: joint_state_controller/JointStateController
   publish_rate: 50
 controller_list:
-  []
-arm_position_controller:
-  type: position_controllers/JointPositionController
-  joints:
-    - shoulder_yaw
-    - shoulder_pitch
-    - elbow
-    - wrist_pitch
-    - wrist_yaw
-    - wrist_roll
-  gains:
-    shoulder_yaw:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    shoulder_pitch:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    elbow:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    wrist_pitch:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    wrist_yaw:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    wrist_roll:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+  - name: arm_controller
+    action_ns: follow_joint_trajectory
+    default: True
+    type: FollowJointTrajectory
+    joints:
+      - shoulder_yaw
+      - shoulder_pitch
+      - elbow
+      - wrist_pitch
+      - wrist_yaw
+      - wrist_roll
+  - name: endeffector_controller
+    action_ns: follow_joint_trajectory
+    default: True
+    type: FollowJointTrajectory
+    joints:
+      wrist_roll
