@@ -452,11 +452,11 @@
     <xacro:AXCollision trans="0 0.002565 0.04237" rpy="-1.57 3.14 0"/> 
   </link>
  
- <!--link name="roll_j_plate">
-    <xacro:roll_j_plate_Inertial trans="0.015 0.0147 0.058" rpy="3.14 1.57 -1.57"/>
-    <xacro:roll_j_plate_Visual trans="0.015 0.0147 0.058" rpy="3.14 1.57 -1.57"/>
-    <xacro:roll_j_plate_Collision trans="0.015 0.0147 0.058" rpy="3.14 1.57 -1.57"/>
-  </link-->
+ <link name="roll_j_plate">
+    <xacro:roll_j_plate_Inertial trans="0.0208 -0.051385 0.0204234" rpy="0 0 1.57"/>
+    <xacro:roll_j_plate_Visual trans="0.0208 -0.051385 0.0204234" rpy="0 0 1.57"/>
+    <xacro:roll_j_plate_Collision trans="0.0208  -0.051385 0.0204234" rpy="0 0 1.57"/>
+  </link>
 
   <link name="square_plate_1">
     <xacro:square_plate_Inertial trans="0.035 -0.0156 0.02" rpy="-1.57 0 0"/>
@@ -511,7 +511,7 @@
   <xacro:Revjoint id="wrist_yaw" trans="0.04 0 -0.055" rpy="0 -1.57 0" parent="wrist_yaw_motor" child="AXBrak_Y_R" axis="0 0 1" l="-1.43" u="+2.11" v="1.0"/> 
   
   <xacro:FxdJoint id="AXBYR_R" trans="0 0 0" rpy="0 0 0" parent="AXBrak_Y_R" child="wrist_roll_motor"/>
-  <xacro:Revjoint id="wrist_roll" trans="0 0.0 0.0409163" rpy="-1.57 3.14 0" parent="wrist_roll_motor" child="gripper" axis="0 0 1" l="-2.617" u="+2.617" v="1.0"/>  
-  <!--xacro:FxdJoint id="roll_plate_gripper" parent="roll_j_plate" child="gripper" /--> 
+  <xacro:Revjoint id="wrist_roll" trans="0 0 0.0409163" rpy="-1.57 3.14 0" parent="wrist_roll_motor" child="roll_j_plate" axis="0 0 1" l="-2.617" u="+2.617" v="1.0"/>  
+ <xacro:FxdJoint id="roll_plate_gripper" trans="-0.0178 -0.043385 0.0025" rpy="0 0 0" parent="roll_j_plate" child="gripper" /> 
   
 </robot>
