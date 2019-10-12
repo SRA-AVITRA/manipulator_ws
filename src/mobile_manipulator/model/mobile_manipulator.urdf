@@ -248,11 +248,26 @@
       </geometry>
     </collision>
   </link>
-  <!--link name="roll_j_plate">
-    <xacro:roll_j_plate_Inertial trans="0.015 0.0147 0.058" rpy="3.14 1.57 -1.57"/>
-    <xacro:roll_j_plate_Visual trans="0.015 0.0147 0.058" rpy="3.14 1.57 -1.57"/>
-    <xacro:roll_j_plate_Collision trans="0.015 0.0147 0.058" rpy="3.14 1.57 -1.57"/>
-  </link-->
+  <link name="roll_j_plate">
+    <inertial>
+      <origin rpy="0 0 1.57" xyz="0.0208 -0.051385 0.0204234"/>
+      <mass value="0.140"/>
+      <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 1.57" xyz="0.0208 -0.051385 0.0204234"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/gripper_Centering.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 1.57" xyz="0.0208  -0.051385 0.0204234"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/gripper_Centering.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
   <link name="square_plate_1">
     <inertial>
       <origin rpy="-1.57 0 0" xyz="0.035 -0.0156 0.02"/>
@@ -420,12 +435,16 @@
     <child link="wrist_roll_motor"/>
   </joint>
   <joint name="wrist_roll" type="revolute">
-    <origin rpy="-1.57 3.14 0" xyz="0 0.0 0.0409163"/>
+    <origin rpy="-1.57 3.14 0" xyz="0 0 0.0409163"/>
     <parent link="wrist_roll_motor"/>
-    <child link="gripper"/>
+    <child link="roll_j_plate"/>
     <axis xyz="0 0 1"/>
     <limit effort="30" lower="-2.617" upper="+2.617" velocity="1.0"/>
   </joint>
-  <!--xacro:FxdJoint id="roll_plate_gripper" parent="roll_j_plate" child="gripper" /-->
+  <joint name="roll_plate_gripper" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.0178 -0.043385 0.0025"/>
+    <parent link="roll_j_plate"/>
+    <child link="gripper"/>
+  </joint>
 </robot>
 
