@@ -31,12 +31,15 @@ Soon to come! Let's get everything working first. I realize this is against rule
 4. Gripper design(Hardware and solidworks)
 
 ## For manipulator 
- 1. ```roslaunch mobile_manipulator_moveit_config demo.launch``` --For simulation arm 
-			OR
-    ```roslaunch my_dynamixel_tutorial execute.launch``` 	 --For hardware arm 
-    ```roslaunch my_dynamixel_tutorial rviz.launch```		 --For rviz with hardware
+1. Start manipulator
+  
+   _For simulation arm_ : ```roslaunch mobile_manipulator_moveit_config demo.launch``` 
+    
+   _For hardware arm_ :```roslaunch my_dynamixel_tutorial execute.launch``` 	  
+   _For rviz with hardware_ : ```roslaunch my_dynamixel_tutorial rviz.launch```		 
 
  2.  Run python scripts from move_group
+
 
 ### For Perception Pipeline
 
