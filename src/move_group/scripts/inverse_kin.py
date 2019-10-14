@@ -43,6 +43,8 @@ quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
 
 home = [0.0, 0.0, 0.4, quat[0], quat[1],quat[2],quat[3]]
 
+test = [0.0, -0.3, 0.3, quat[0], quat[1],quat[2],quat[3]]
+
 zdownby1_5 = [0.114535965537,-0.000209275828715,0.516932398762,-0.530234925441,-0.54221513755,0.458969531642,0.462818147308]
 
 moveit_commander.roscpp_initialize(sys.argv)
@@ -66,8 +68,8 @@ if (len(sys.argv) == 2):
         change_end_pose(group_arm, zdownby1_5)
     elif(sys.argv[1] == "home"):
        change_joint_angles(group_arm, [0, 0, 0, 0, 0, 0])
-    elif(sys.argv[1] == "pre_grasp_i"):
-        change_end_pose(group_arm, pre_grasp)
+    elif(sys.argv[1] == "test"):
+        change_end_pose(group_arm, test)
     else:
         "Supported Arguments : home"
 else:        
