@@ -30,6 +30,9 @@ Soon to come! Let's get everything working first. I realize this is against rule
 3. getting started with c++ code for advanced usage
 4. Gripper design(Hardware and solidworks)
 
+## Installations 
+sudo apt-get install ros-kinetic-trac-ik-kinematics-plugin
+
 ## For manipulator 
 1. Start manipulator
   
@@ -38,8 +41,7 @@ Soon to come! Let's get everything working first. I realize this is against rule
    _For hardware arm_ :```roslaunch my_dynamixel_tutorial execute.launch``` 	  
    _For rviz with hardware_ : ```roslaunch my_dynamixel_tutorial rviz.launch```		 
 
- 2.  Run python scripts from move_group
-
+2.  Run python scripts from move_group
 
 ### For Perception Pipeline
 
