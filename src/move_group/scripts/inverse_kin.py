@@ -41,7 +41,7 @@ yaw = 1.57
 
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
 
-home = [0.0, 0.0, 0.4, quat[0], quat[1],quat[2],quat[3]]
+home = [0.3, 0.3, 0.4, quat[0], quat[1],quat[2],quat[3]]
 
 test = [0.0, -0.3, 0.3, quat[0], quat[1],quat[2],quat[3]]
 
