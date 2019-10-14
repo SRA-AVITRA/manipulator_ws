@@ -33,9 +33,3 @@ controller_list:
       - wrist_pitch
       - wrist_yaw
       - wrist_roll
-  - name: endeffector_controller
-    action_ns: follow_joint_trajectory
-    default: True
-    type: FollowJointTrajectory
-    joints:
-      wrist_roll

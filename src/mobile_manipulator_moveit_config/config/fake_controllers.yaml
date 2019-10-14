@@ -7,6 +7,3 @@ controller_list:
       - wrist_pitch
       - wrist_yaw
       - wrist_roll
-  - name: fake_endeffector_controller
-    joints:
-      - wrist_roll
