@@ -18,13 +18,38 @@ Soon to come! Let's get everything working first. I realize this is against rule
 1. 6dof manipulator urdf added
 2. Removed squarePlate because .dae was crashing
 3. MoveIt congfig generated
-```roslaunch mobile_manipulator_moveit_config demo.launch```
 4. Motion planning using Rviz done
+5. TRAC-IK solver tested
+6. Perception using kinect started
+7. Gripper started
 
 ### Things to do
 
 1. IK FAST plugin
-2. Interfacing Dynamixel with moveIt 6dof
-3. Generating python base codes from tutorial
-4. getting started with c++ code for advanced usage
-5. Gripper design(Hardware and solidworks)
+2. Generating python base codes from tutorial
+3. getting started with c++ code for advanced usage
+4. Gripper design(Hardware and solidworks)
+
+## For manipulator 
+ 1. ```roslaunch mobile_manipulator_moveit_config demo.launch``` --For simulation arm 
+			OR
+    ```roslaunch my_dynamixel_tutorial execute.launch``` 	 --For hardware arm 
+    ```roslaunch my_dynamixel_tutorial rviz.launch```		 --For rviz with hardware
+
+ 2.  Run python scripts from move_group
+
+### For Perception Pipeline
+
+    roslaunch openni_launch openni.launch
+    rosrun perception pixel_xy.py
+    rosrun perception depth_from_pixels.py
+    To extract colour from object, run "rosrun perception get_colors.py" and select a bounding box of the relevant objects. This will print the hsv values of the object. Enter these values in the pixel_xy.py script in place of lowerRed and upperRed values
+
+### To install openni and associated packages for perception
+
+    sudo apt-get install ros-kinetic-openni-camera
+    sudo apt-get install ros-kinetic-openni-launch
+    sudo apt-get install ros-kinetic-ros-numpy
+    sudo apt-get install ros-kinetic-cv-bridge
+    sudo apt-get install ros-kinetic-vision-opencv
+
