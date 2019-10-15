@@ -20,15 +20,13 @@ move_group = moveit_commander.MoveGroupCommander(group_name)
 
 display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',moveit_msgs.msg.DisplayTrajectory,queue_size=20)
 
-start = [0.431930257548,0.0163324526093,0.40211261149,0.7079249301,-0.706186690168,-0.0114258354273,0.00347882972886]
+startf = [0.431930257548,0.0163324526093,0.40211261149,0.7079249301,-0.706186690168,-0.0114258354273,0.00347882972886]
+startb = [-0.0493725765937,-0.018111808485,0.388071673243,-0.705994941556,-0.708093906655,-0.00555689006457,0.0119700805499]
+startr = [0.227650938917,-0.245318364618,0.380137095824,-0.0335772896851,0.998883815097,0.0312144747797,0.0113730434987]
+startl = [0.160276378107,0.245390963077,0.407465712036,-0.999550237342,-0.0268603022128,0.0132137811047,0.00180088426689]
+
+start9 = [0.47051959674, 0.00363203078816,0.507951895058,-0.411071161632,0.597137248091,-0.338671663396, 0.599790889752]
 home = [0.111897564472,-0.0177947739322,0.721684148614,-0.500086242412,-0.508889465502,0.497331187906,0.493565549434]
-
-
-
-
-
-
-
 
 def change_end_pose(group, input_pose):
     pose_goal = geometry_msgs.msg.Pose()
@@ -57,9 +55,11 @@ def change_joint_angles(group, joint_goal):
 def init(group):
     change_end_pose(group, home)
     print("HOME")
-    #change_end_pose(group, start)
-    #print("START")
+    change_end_pose(group, start)
+    print("START")
+    
 scale = 0.01
+
 def draw(x,y,z):
     waypoints = []
     wpose = move_group.get_current_pose().pose
@@ -74,10 +74,11 @@ def draw(x,y,z):
     move_group.execute(plan, wait=True)
     print(fraction)
 
-init(move_group)
 
-draw(0,0,-5)
-draw(0,+10,0)
+init(move_group)
+#change_joint_angles(move_group,[0,0,0,0,0,0])
+
+draw(0,10,0)
 draw(10,0,0)
 draw(0,-10,0)
 draw(-10,0,0)
