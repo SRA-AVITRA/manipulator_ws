@@ -31,6 +31,8 @@ Soon to come! Let's get everything working first. I realize this is against rule
 4. Gripper design(Hardware and solidworks)
 
 ## Installations 
+sudo apt-get install ros-kinetic-dynamixel-controllers
+sudo apt install ros-kinetic-moveit
 sudo apt-get install ros-kinetic-trac-ik-kinematics-plugin
 
 ## For manipulator 
