@@ -31,6 +31,13 @@ startl = [0.160276378107,0.245390963077,0.407465712036,-0.999550237342,-0.026860
 start9 = [0.47051959674, 0.00363203078816,0.507951895058,-0.411071161632,0.597137248091,-0.338671663396, 0.599790889752]
 home = [0.111897564472,-0.0177947739322,0.721684148614,-0.500086242412,-0.508889465502,0.497331187906,0.493565549434]
 
+
+start_new = [0.432840972888,-0.0840177946915,0.347419348191,0.704983984704,-0.701265044004,-0.0972641151834, 0.0420072763532]
+
+
+
+
+
 def change_end_pose(group, input_pose):
     pose_goal = geometry_msgs.msg.Pose()
     end_goal = pose_to_list(pose_goal)
@@ -58,7 +65,11 @@ def change_joint_angles(group, joint_goal):
 def init(group):
     change_end_pose(group, home)
     print("HOME")
+<<<<<<< HEAD
+    change_end_pose(group, startf)
+=======
     change_end_pose(group, start9)
+>>>>>>> 6e0caad0d21f1ae3f91fe111dda91585678afd5e
     print("START")
     
 scale = 0.01
