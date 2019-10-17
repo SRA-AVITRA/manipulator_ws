@@ -22,7 +22,7 @@
   <arg name="gazebo_gui" default="true"/>
   <arg name="paused" default="false"/>
   <!-- By default, use the urdf location provided from the package -->
-  <arg name="urdf_path" default="$(find mobile_manipulator)/model/mobile_manipulator.xacro"/>
+  <arg name="urdf_path" default="$(find mobile_manipulator)/model/mobile_manipulator.urdf"/>
 
   <!-- launch the gazebo simulator and spawn the robot -->
   <include file="$(find mobile_manipulator_moveit_config)/launch/gazebo.launch" >

@@ -2,7 +2,7 @@
 <launch>
   <arg name="paused" default="false"/>
   <arg name="gazebo_gui" default="true"/>
-  <arg name="urdf_path" default="$(find mobile_manipulator)/model/mobile_manipulator.xacro"/>
+  <arg name="urdf_path" default="$(find mobile_manipulator)/model/mobile_manipulator.urdf"/>
 
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">

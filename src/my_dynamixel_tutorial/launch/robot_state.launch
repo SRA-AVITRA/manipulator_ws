@@ -11,7 +11,7 @@
     		<rosparam param="/source_list">[/robot/joint_states]</rosparam>
   </node>
 
-  <node pkg="tf" type="static_transform_publisher" name="map_base_tf" args="0 0 0 0 0 0 /map /shoulder_yaw_motor 5" />
+  <node pkg="tf" type="static_transform_publisher" name="map_base_tf" args="0 0 0 0 0 0 /map /bot 5" />
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"

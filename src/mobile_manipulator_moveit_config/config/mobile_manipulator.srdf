@@ -44,8 +44,10 @@
         <joint name="wrist_roll" value="0" />
         <joint name="wrist_yaw" value="0" />
     </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="gripper" parent_link="roll_j_plate" group="arm" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
-    <virtual_joint name="baselink" type="fixed" parent_frame="world" child_link="bot" />
+    <virtual_joint name="map_bot" type="fixed" parent_frame="map" child_link="bot" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="AXB2B_SQ_Y" link2="AXBrak_Y_R" reason="Never" />
     <disable_collisions link1="AXB2B_SQ_Y" link2="biscep" reason="Never" />
