@@ -1,0 +1,6 @@
+<robot file="mobile_manipulator.dae">
+    <Manipulator name="mobile_manipulator">
+    <base>bot</base>
+    <effector>gripper</effector>
+    </Manipulator>
+</robot>
