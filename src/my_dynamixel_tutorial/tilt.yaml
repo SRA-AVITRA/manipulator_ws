@@ -87,6 +87,6 @@ gripper_controller:
     joint_speed: 1.75
     motor:
         id: 7
-        init: 530
-        min: 548
-        max: 738
+        init: 1024
+        min: 0
+        max: 1024
