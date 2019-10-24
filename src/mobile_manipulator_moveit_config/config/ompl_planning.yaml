@@ -146,3 +146,5 @@ arm:
     - LazyPRMstar
     - SPARS
     - SPARStwo
+  projection_evaluator: joints(shoulder_yaw,shoulder_pitch)
+  longest_valid_segment_fraction: 0.005

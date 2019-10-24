@@ -21,8 +21,8 @@ shoulder_pitch_controller:
     motor_master:
         id: 2
         init: 2048
-        min: 713
-        max: 3250
+        min: 0
+        max: 4096
     motor_slave:
         id: 8
 
@@ -36,8 +36,8 @@ elbow_controller:
     motor:
         id: 3
         init: 2048
-        min: 923
-        max: 3508
+        min: 0
+        max: 4096
         
 wrist_pitch_controller:
     controller:
@@ -49,8 +49,8 @@ wrist_pitch_controller:
     motor:
         id: 4
         init: 512
-        min: 50
-        max: 975
+        min: 0
+        max: 1024
 
 wrist_yaw_controller:
     controller:
