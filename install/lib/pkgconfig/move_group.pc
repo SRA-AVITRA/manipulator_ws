@@ -1,8 +1,0 @@
-prefix=/home/avitra/manipulator_ws/install
-
-Name: move_group
-Description: Description of move_group
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/avitra/manipulator_ws/install/lib 
-Requires: 
