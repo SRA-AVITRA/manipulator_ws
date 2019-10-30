@@ -1,8 +1,0 @@
-prefix=/home/avitra/manipulator_ws/install
-
-Name: mobile_manipulator_moveit_config
-Description: Description of mobile_manipulator_moveit_config
-Version: 0.3.0
-Cflags: 
-Libs: -L/home/avitra/manipulator_ws/install/lib 
-Requires: 
