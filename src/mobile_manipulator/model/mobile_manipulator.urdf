@@ -53,7 +53,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0.13 -0.02 0.1715"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/base_motor.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -66,14 +66,14 @@
     <visual>
       <origin rpy="0 0 0 " xyz="-0.019 -0.062 0"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw1.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw_brak.STL" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="0 0 0 " xyz="-0.019 -0.062 0"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw1.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw_brak.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -99,79 +99,79 @@
   </link>
   <link name="elbow_motor">
     <inertial>
-      <origin rpy="-1.57 3.14 0" xyz="0.0180 -0.09 -0.02"/>
+      <origin rpy="-1.57 3.14 3.14" xyz="-0.025 0.075 -0.02"/>
       <mass value="0.140"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="-1.57 3.14 0" xyz="0.0180 -0.09 -0.02"/>
+      <origin rpy="-1.57 3.14 3.14" xyz="-0.025  0.085 -0.02"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/elbow_pitch.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/new_elbow_pitch2.STL" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="orange"/>
     </visual>
     <collision>
-      <origin rpy="-1.57 3.14 0" xyz="0.0180 -0.09 -0.02"/>
+      <origin rpy="-1.57 3.14 3.14" xyz="-0.025 0.075 -0.02"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/elbow_pitch.STL" scale="0.001 0.001 0.001"/>
-      </geometry>
-    </collision>
-  </link>
-  <link name="wrist_pitch_motor">
-    <inertial>
-      <origin rpy="-1.57 0 1.57" xyz="0.0090 -0.05 -0.009"/>
-      <mass value="0.140"/>
-      <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
-    </inertial>
-    <visual>
-      <origin rpy="-1.57 3.14 0" xyz="0.0090 -0.05 -0.009"/>
-      <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/wrist_pitch.STL" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="orange"/>
-    </visual>
-    <collision>
-      <origin rpy="-1.57 0 1.57" xyz="0.0090 -0.05 -0.009"/>
-      <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/wrist_pitch.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/new_elbow_pitch2.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
   <link name="wrist_yaw_motor">
     <inertial>
-      <origin rpy="0 0 3.14" xyz="0.02 -0.055 -0.063"/>
+      <origin rpy="0 0 0" xyz="0.0 0 -0.052"/>
       <mass value="0.140"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="1.57 0 3.14" xyz="0.02 -0.055 -0.063"/>
+      <origin rpy="1.57 0 0" xyz="-0.025 0.048 -0.052"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/wrist_yaw.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/wrist_yaw_brak.STL" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="orange"/>
     </visual>
     <collision>
-      <origin rpy="0 0 3.14" xyz="0.02 -0.055 -0.063"/>
+      <origin rpy="0 0 0" xyz="0.0 0 -0.052"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/wrist_yaw.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/wrist_yaw_brak.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="wrist_pitch_motor">
+    <inertial>
+      <origin rpy="-1.57 0 1.57" xyz="0.0 0.051 -0.009"/>
+      <mass value="0.140"/>
+      <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.57 3.14 3.14" xyz="-0.0165 0.051 -0.008"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/wrist_pitch.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    <collision>
+      <origin rpy="-1.57 0 1.57" xyz="0.0 0.051 -0.009"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/wrist_pitch.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
   <link name="wrist_roll_motor">
     <inertial>
-      <origin rpy="-1.57 3.14 0" xyz="-0.02 -0.06 -0.026"/>
+      <origin rpy="-1.57 3.14 3.14" xyz="-0.02 -0.06 -0.026"/>
       <mass value="0.140"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="-1.57 3.14 0" xyz="-0.02 -0.06 -0.026"/>
+      <origin rpy="-1.57 3.14 3.14" xyz="0.057 0.05 -0.015"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/wrist_roll.STL" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="orange"/>
     </visual>
     <collision>
-      <origin rpy="-1.57 3.14 0" xyz="-0.02 -0.06 -0.026"/>
+      <origin rpy="-1.57 3.14 3.14" xyz="-0.02 -0.06 -0.026"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/wrist_roll.STL" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -203,23 +203,23 @@
     <axis xyz="0 1 0"/>
     <limit effort="30" lower="-1.9262" upper="1.934" velocity="1.0"/>
   </joint>
-  <joint name="wrist_pitch" type="revolute">
-    <origin rpy="0 0 0" xyz="0.004 0 0.196 "/>
-    <parent link="elbow_motor"/>
-    <child link="wrist_pitch_motor"/>
-    <axis xyz="0 1 0"/>
-    <limit effort="30" lower="-2.29" upper="0.718" velocity="1.0"/>
-  </joint>
   <joint name="wrist_yaw" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.080 0 0.05"/>
-    <parent link="wrist_pitch_motor"/>
+    <origin rpy="0 0 0" xyz="0.015 -0.005 0.278 "/>
+    <parent link="elbow_motor"/>
     <child link="wrist_yaw_motor"/>
     <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-2.29" upper="0.718" velocity="1.0"/>
+  </joint>
+  <joint name="wrist_pitch" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="wrist_yaw_motor"/>
+    <child link="wrist_pitch_motor"/>
+    <axis xyz="0 1 0"/>
     <limit effort="30" lower="-1.43" upper="+2.11" velocity="1.0"/>
   </joint>
   <joint name="wrist_roll" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0 -0.0415"/>
-    <parent link="wrist_yaw_motor"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="wrist_pitch_motor"/>
     <child link="wrist_roll_motor"/>
     <axis xyz="1 0 0"/>
     <limit effort="30" lower="-2.617" upper="+2.617" velocity="1.0"/>
