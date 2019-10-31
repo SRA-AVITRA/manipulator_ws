@@ -44,7 +44,6 @@
     <disable_collisions link1="elbow_motor" link2="shoulder_bracket" reason="Never" />
     <disable_collisions link1="elbow_motor" link2="shoulder_pitch_motor" reason="Adjacent" />
     <disable_collisions link1="elbow_motor" link2="shoulder_yaw_motor" reason="Never" />
-    <disable_collisions link1="elbow_motor" link2="wrist_pitch_motor" reason="Never" />
     <disable_collisions link1="elbow_motor" link2="wrist_yaw_motor" reason="Adjacent" />
     <disable_collisions link1="shoulder_bracket" link2="shoulder_pitch_motor" reason="Adjacent" />
     <disable_collisions link1="shoulder_bracket" link2="shoulder_yaw_motor" reason="Adjacent" />
@@ -59,4 +58,5 @@
     <disable_collisions link1="shoulder_yaw_motor" link2="wrist_yaw_motor" reason="Never" />
     <disable_collisions link1="wrist_pitch_motor" link2="wrist_roll_motor" reason="Adjacent" />
     <disable_collisions link1="wrist_pitch_motor" link2="wrist_yaw_motor" reason="Adjacent" />
+    <disable_collisions link1="wrist_roll_motor" link2="wrist_yaw_motor" reason="Never" />
 </robot>

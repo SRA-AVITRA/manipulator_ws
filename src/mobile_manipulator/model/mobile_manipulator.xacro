@@ -283,42 +283,42 @@
   </link>
 
   <link name="shoulder_bracket">
-    <xacro:shoulder_yaw_brak_inertial trans="-0.019 -0.062 0.0" rpy="0 0 0 "/>
+    <xacro:shoulder_yaw_brak_inertial trans="-0.019 -0.062 0" rpy="0 0 0 "/>
     <xacro:shoulder_yaw_brak_visual trans="-0.019 -0.062 0" rpy="0 0 0 "/>
     <xacro:shoulder_yaw_brak_collision trans="-0.019 -0.062 0" rpy="0 0 0 "/>
   </link>  
 
   <link name="shoulder_pitch_motor">
-    <xacro:shoulder_pitch_inertial trans="0.09 0 -0.00120" rpy="-1.57 3.14 1.57"/>  
+    <xacro:shoulder_pitch_inertial trans="0.09 0.06 -0.00120" rpy="-1.57 3.14 1.57"/>  
     <xacro:shoulder_pitch_visual trans="0.09 0.06 -0.0120" rpy="-1.57 3.14 1.57"/>
-    <xacro:shoulder_pitch_collision trans="0.09 0 -0.0120" rpy="-1.57 3.14 1.57"/>
+    <xacro:shoulder_pitch_collision trans="0.09 0.06 -0.0120" rpy="-1.57 3.14 1.57"/>
   </link>
 
  
   <link name="elbow_motor">
-    <xacro:elbow_inertial trans="-0.025 0.075 -0.02" rpy="-1.57 3.14 3.14"/>  
+    <xacro:elbow_inertial trans="-0.025 0.085 -0.02" rpy="-1.57 3.14 3.14"/>  
     <xacro:elbow_visual trans="-0.025  0.085 -0.02" rpy="-1.57 3.14 3.14"/>
-    <xacro:elbow_collision trans="-0.025 0.075 -0.02" rpy="-1.57 3.14 3.14"/>
+    <xacro:elbow_collision trans="-0.025 0.085 -0.02" rpy="-1.57 3.14 3.14"/>
   </link>
  
   <link name="wrist_yaw_motor">
-    <xacro:wrist_yaw_inertial trans="0.0 0 -0.052" rpy="0 0 0"/>
+    <xacro:wrist_yaw_inertial trans="-0.025 0.048 -0.052" rpy="1.57 0 0"/>
     <xacro:wrist_yaw_visual trans="-0.025 0.048 -0.052" rpy="1.57 0 0"/>
-    <xacro:wrist_yaw_collision trans="0.0 0 -0.052" rpy="0 0 0"/>
+    <xacro:wrist_yaw_collision trans="-0.025 0.048 -0.052" rpy="1.57 0 0"/>
   </link>
   
 
   <link name="wrist_pitch_motor">
-    <xacro:wrist_pitch_inertial trans="0.0 0.051 -0.009" rpy="-1.57 0 1.57"/>
+    <xacro:wrist_pitch_inertial trans="-0.0165 0.051 -0.008" rpy="-1.57 3.14 3.14"/>
     <xacro:wrist_pitch_visual trans="-0.0165 0.051 -0.008" rpy="-1.57 3.14 3.14"/>
-    <xacro:wrist_pitch_collision trans="0.0 0.051 -0.009" rpy="-1.57 0 1.57"/>
+    <xacro:wrist_pitch_collision trans="-0.0165 0.051 -0.008" rpy="-1.57 3.14 3.14"/>
   </link>
 
 
   <link name="wrist_roll_motor">
-    <xacro:wrist_roll_inertial trans="-0.02 -0.06 -0.026" rpy="-1.57 3.14 3.14"/>
+    <xacro:wrist_roll_inertial trans="0.057 0.05 -0.015" rpy="-1.57 3.14 3.14"/>
     <xacro:wrist_roll_visual trans="0.057 0.05 -0.015" rpy="-1.57 3.14 3.14"/>
-    <xacro:wrist_roll_collision trans="-0.02 -0.06 -0.026" rpy="-1.57 3.14 3.14"/> 
+    <xacro:wrist_roll_collision trans="0.057 0.05 -0.015" rpy="-1.57 3.14 3.14"/> 
   </link>
 
     

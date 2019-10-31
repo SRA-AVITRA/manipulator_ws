@@ -78,10 +78,10 @@ def draw(x,y,z):
 init(move_group)
 #change_joint_angles(move_group,[0,0,0,0,0,0])
 
-draw(0,10,0)
-draw(10,0,0)
-draw(0,-10,0)
-draw(-10,0,0)
+draw(0,5,0)
+draw(5,0,0)
+draw(0,-5,0)
+draw(-5,0,0)
 
 
 
