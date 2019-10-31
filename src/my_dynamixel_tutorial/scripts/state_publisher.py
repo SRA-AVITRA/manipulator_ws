@@ -11,7 +11,7 @@ rospy.init_node('State_Publisher')
 
 # Name of the joints in the robotic arm
 # Name of motor ID [1,2,3,4,5,6] is specified in the list.
-joints = ["shoulder_yaw", "shoulder_pitch", "elbow", "wrist_pitch", "wrist_yaw", "wrist_roll", "gripper_motor"]
+joints = ["shoulder_yaw", "shoulder_pitch", "elbow", "wrist_yaw", "wrist_pitch", "wrist_roll", "gripper_motor"]
 
 #Dynamixel Motors will not be in Position 0 when switched ON. Dynamixel motors will have some initial position value. 
 #In the URDF it is assumed that initial joint value is 0 radian. 
