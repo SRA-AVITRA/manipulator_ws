@@ -28,7 +28,7 @@ def image_callback(ros_image):
     except CvBridgeError, e:
         print e
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    bboxRed = cv2.selectROI(hsv)
+    bboxRed = cv2.selectROI(frame)
     redObj = hsv[int(bboxRed[1]):int(bboxRed[1]+bboxRed[3]), int(bboxRed[0]):int(bboxRed[0]+bboxRed[2])]
     print()
 
@@ -53,7 +53,7 @@ def main(args):
         cv2.DestroyAllWindows()
 
 if __name__ == '__main__':
-    image_sub = rospy.Subscriber("/camera/rgb/image_color", Image,image_callback)
+    image_sub = rospy.Subscriber("/camera/color/image_rect_color", Image,image_callback)
     centroid_pub = rospy.Publisher('centroid', array, queue_size = 10)
 
     main(sys.argv)
