@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/avitra/manipulator_ws/devel/include",
+        "/opt/ros/kinetic/include",
+        "/home/avitra/manipulator_ws/src/mobile_manipulator_ikfast_arm_plugin/include",
+        "/usr/include"
+      ],
+      "name": "Linux"
+    }
+  ]
+}

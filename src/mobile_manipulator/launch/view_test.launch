@@ -5,6 +5,6 @@
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mobile_manipulator)/launch/view_test_tf.rviz" required="true" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mobile_manipulator)/urdf.rviz" required="true" />
 
 </launch>
