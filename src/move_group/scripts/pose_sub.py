@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import sys
 import copy
 import rospy
@@ -28,9 +27,9 @@ group = moveit_commander.MoveGroupCommander(group_name)
 display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',moveit_msgs.msg.DisplayTrajectory,queue_size=20)
 
 
-roll = 1.57
-pitch = 1.57
-yaw = 1.57
+roll = 0
+pitch = 0
+yaw = 0
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
 
 def transform(x,y,z) :
