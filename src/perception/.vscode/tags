@@ -1,0 +1,60 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+__init__	../scripts/get_pixelxy_kinect.py	/^	def __init__(self):$/;"	kind:member	line:13
+__init__	../scripts/only_rgb_image.ipynb	/^	def __init__(self):$/;"	kind:member	line:12
+__init__	../scripts/only_rgb_image.py	/^	def __init__(self):$/;"	kind:member	line:12
+bridge	../scripts/get_colors.py	/^bridge = CvBridge()$/;"	kind:variable	line:20
+cleanup	../scripts/get_pixelxy_kinect.py	/^	def cleanup(self):$/;"	kind:member	line:75
+cleanup	../scripts/only_rgb_image.ipynb	/^	def cleanup(self):$/;"	kind:member	line:78
+cleanup	../scripts/only_rgb_image.py	/^	def cleanup(self):$/;"	kind:member	line:142
+counter	../scripts/depth_from_pixelarray_realsense.py	/^counter = 0 $/;"	kind:variable	line:11
+counter	../scripts/depth_from_pixels.py	/^counter = 0 $/;"	kind:variable	line:11
+cvBridgeDemo	../scripts/get_pixelxy_kinect.py	/^class cvBridgeDemo(object):$/;"	kind:class	line:11
+cvBridgeDemo	../scripts/only_rgb_image.ipynb	/^class cvBridgeDemo(object):$/;"	kind:class	line:10
+cvBridgeDemo	../scripts/only_rgb_image.py	/^class cvBridgeDemo(object):$/;"	kind:class	line:10
+depth_from_pixelarray_realsense.py	../scripts/depth_from_pixelarray_realsense.py	1;"	kind:file	line:1
+depth_from_pixels.py	../scripts/depth_from_pixels.py	1;"	kind:file	line:1
+get_colors.py	../scripts/get_colors.py	1;"	kind:file	line:1
+get_objectarray_realsense.py	../scripts/get_objectarray_realsense.py	1;"	kind:file	line:1
+get_pixelxy_kinect.py	../scripts/get_pixelxy_kinect.py	1;"	kind:file	line:1
+image_callback	../scripts/get_colors.py	/^def image_callback(ros_image):$/;"	kind:function	line:25
+image_callback	../scripts/get_objectarray_realsense.py	/^def image_callback(ros_image):$/;"	kind:function	line:21
+image_callback	../scripts/get_pixelxy_kinect.py	/^	def image_callback(self, ros_image):$/;"	kind:member	line:33
+image_callback	../scripts/only_rgb_image.ipynb	/^	def image_callback(self, ros_image):$/;"	kind:member	line:26
+image_callback	../scripts/only_rgb_image.py	/^	def image_callback(self, ros_image):$/;"	kind:member	line:32
+image_callback	../scripts/pixel_array_realsense.py	/^def image_callback(ros_image):$/;"	kind:function	line:22
+image_callback	../scripts/pixel_xy.py	/^def image_callback(ros_image):$/;"	kind:function	line:21
+image_callback	../scripts/test_grasp.py	/^def image_callback(ros_image):$/;"	kind:function	line:22
+kernel	../scripts/get_colors.py	/^kernel = np.ones((2,2),np.uint8)$/;"	kind:variable	line:16
+listener	../scripts/depth_from_pixelarray_realsense.py	/^def listener():$/;"	kind:function	line:49
+listener	../scripts/depth_from_pixels.py	/^def listener():$/;"	kind:function	line:50
+lower_red	../scripts/get_colors.py	/^lower_red = np.array([160,0,0])$/;"	kind:variable	line:12
+main	../scripts/get_colors.py	/^def main(args):$/;"	kind:function	line:48
+main	../scripts/get_objectarray_realsense.py	/^def main(args):$/;"	kind:function	line:66
+main	../scripts/get_pixelxy_kinect.py	/^def main(args):$/;"	kind:function	line:80
+main	../scripts/only_rgb_image.ipynb	/^def main(args):$/;"	kind:function	line:83
+main	../scripts/only_rgb_image.py	/^def main(args):$/;"	kind:function	line:147
+main	../scripts/pixel_array_realsense.py	/^def main(args):$/;"	kind:function	line:76
+main	../scripts/pixel_xy.py	/^def main(args):$/;"	kind:function	line:66
+main	../scripts/test_grasp.py	/^def main(args):$/;"	kind:function	line:39
+node_name	../scripts/get_colors.py	/^node_name = "cv_bridge_demo"$/;"	kind:variable	line:15
+node_name	../scripts/get_objectarray_realsense.py	/^node_name = "cv_bridge_demo"$/;"	kind:variable	line:12
+node_name	../scripts/pixel_array_realsense.py	/^node_name = "cv_bridge_demo"$/;"	kind:variable	line:13
+node_name	../scripts/pixel_xy.py	/^node_name = "cv_bridge_demo"$/;"	kind:variable	line:12
+node_name	../scripts/test_grasp.py	/^node_name = "cv_bridge_demo"$/;"	kind:variable	line:13
+on_new_centroid_array	../scripts/depth_from_pixelarray_realsense.py	/^def on_new_centroid_array(data):$/;"	kind:function	line:17
+on_new_centroid_array	../scripts/depth_from_pixels.py	/^def on_new_centroid_array(data):$/;"	kind:function	line:17
+on_new_point_cloud	../scripts/depth_from_pixelarray_realsense.py	/^def on_new_point_cloud(data):$/;"	kind:function	line:13
+on_new_point_cloud	../scripts/depth_from_pixels.py	/^def on_new_point_cloud(data):$/;"	kind:function	line:13
+only_rgb_image.ipynb	../scripts/only_rgb_image.ipynb	1;"	kind:file	line:1
+only_rgb_image.py	../scripts/only_rgb_image.py	1;"	kind:file	line:1
+pixel_array_realsense.py	../scripts/pixel_array_realsense.py	1;"	kind:file	line:1
+pixel_xy.py	../scripts/pixel_xy.py	1;"	kind:file	line:1
+process_image	../scripts/only_rgb_image.ipynb	/^	def process_image(self, frame):$/;"	kind:member	line:64
+process_image	../scripts/only_rgb_image.py	/^	def process_image(self, frame):$/;"	kind:member	line:129
+test_grasp.py	../scripts/test_grasp.py	1;"	kind:file	line:1
+upper_red	../scripts/get_colors.py	/^upper_red = np.array([180,255,255])$/;"	kind:variable	line:13

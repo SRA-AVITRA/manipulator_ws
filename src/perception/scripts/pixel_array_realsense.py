@@ -51,20 +51,27 @@ def image_callback(ros_image):
 	
 	#Visulization
 	cv2.drawContours(frame, contoursRed, redIndex, (0, 0, 255), 2)
-	cv2.imshow(node_name, frame)
+	
 
 	#Get contour array
-	cimg = np.zeros_like(frame)
-	cv2.drawContours(cimg, contoursRed, redIndex,(0,0,255),2)
-	pts = np.where(cimg==255)
-	# pts_pc2 = ros_numpy.point_cloud2.array_to_pointcloud2(pts)
+	# cimg = np.zeros_like(frame)
+	# cv2.drawContours(cimg, contoursRed, redIndex,(0,0,255),2)
+	# pts = np.where(cimg==255)
+	# # pts_pc2 = ros_numpy.point_cloud2.array_to_pointcloud2(pts)
 
-	pts = np.array(pts)
-	print(pts.shape)
-	c_row = np.mean(pts[:,0])
-	c_col = np.mean(pts[:,1])
-	arr = [c_row, c_col]
-	
+	# pts = np.array(pts)
+	# print(pts.shape)
+	# c_row = np.mean(pts[:,0])
+	# c_col = np.mean(pts[:,1])
+	# arr = [c_row, c_col]
+	x,y,w,h = cv2.boundingRect(contoursRed[redIndex])
+	c_x = (x + w/2)
+	c_y = (y + h/2)
+	arr = [c_x,c_y]
+	print(arr)
+	centroid_pub.publish(arr)
+	img = cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
+	cv2.imshow(node_name, frame)
 	# pc2_pub.publish(pts_pc2)
 	centroid_pub.publish(arr)
 	keystroke = cv2.waitKey(5)

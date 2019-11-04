@@ -35,6 +35,14 @@
         <joint name="wrist_roll" value="0" />
         <joint name="wrist_yaw" value="0" />
     </group_state>
+    <group_state name="pre_pen" group="arm">
+        <joint name="elbow" value="1.57" />
+        <joint name="shoulder_pitch" value="0" />
+        <joint name="shoulder_yaw" value="0" />
+        <joint name="wrist_pitch" value="-1.57" />
+        <joint name="wrist_roll" value="0" />
+        <joint name="wrist_yaw" value="0" />
+    </group_state>
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="map" type="fixed" parent_frame="map_bot" child_link="bot" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->

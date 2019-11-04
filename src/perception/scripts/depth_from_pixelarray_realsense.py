@@ -25,15 +25,13 @@ def on_new_centroid_array(data):
         
         # x = np.mean()
 
-        print("--------------------------------------------")
-        print("Centroid:",centroid_array)
+        # print("--------------------------------------------")
+        # print("Centroid:",centroid_array)
         if not (math.isnan(x) or math.isnan(y) or math.isnan(z)):
-            print('not nan')
             t_x +=x
             t_y +=y
             t_z +=z
             counter+=1
-        print(counter)
         if counter==10:
             t_x/=10
             t_y/=10

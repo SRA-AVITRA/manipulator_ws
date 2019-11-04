@@ -17,7 +17,7 @@ scene = moveit_commander.PlanningSceneInterface()
 
 group_name = "arm"
 move_group = moveit_commander.MoveGroupCommander(group_name)
-
+move_group.set_goal_tolerance(0.0005)
 display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',moveit_msgs.msg.DisplayTrajectory,queue_size=20)
 
 pre_grasp = [0.454690388429,0.000719827773983,0.476488014448,0.00349018704767,0.712495632033,0.000152936112879,0.701667848444]
@@ -53,8 +53,9 @@ def change_joint_angles(group, joint_goal):
 def init(group):
     change_end_pose(group, home)
     print("HOME")
-    change_end_pose(group, board)
+    change_end_pose(group, pre_grasp)
     print("START")
+    
     
 scale = 0.01
 
