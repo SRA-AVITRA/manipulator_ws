@@ -24,8 +24,8 @@ display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path
 
 
 
-roll = 1.57
-pitch = 1.57
+roll = 0
+pitch = 0
 yaw = 1.57
 
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)

@@ -1,0 +1,42 @@
+<launch>
+    <!-- By default, we do not start a database (it can be large) -->
+    <arg name="db" default="false" />
+    <!-- Allow user to specify database location -->
+    <arg name="db_path" default="$(find mobile_manipulator_moveit_config)/default_warehouse_mongo_db" />
+
+     <!-- Load the URDF , SRDF and other . yaml configuration files on the param server -->
+    <include file ="$( find mobile_manipulator_moveit_config )/launch/planning_context.launch">
+        <arg name ="load_robot_description" value ="true"/>
+    </include >
+
+    <!-- Including openni launch to get camera streams ( really depends on the driver we want to use ) -->
+
+    <!-- <include file ="$( find freenect_launch )/launch/freenect.launch">
+        <arg name="rgb_frame_id" value="camera_rgb_optical_frame"/>
+        <arg name="depth_frame_id" value="camera_depth_optical_frame"/>    
+    </include > -->
+
+    <!-- static_transform_publisher x y z qx qy qz qw frame_id child_frame_id period_in_ms -->
+    <node pkg ="tf" type ="static_transform_publisher" name ="camera_link_tf_broadcaster" args ="0.75 0 -0.11 1.57 0 0 camera_link base_link 100" />
+    
+    <!-- In simulation , we are going to need the controller to execute trajectories -->
+    <!-- <include file="$(find my_dynamixel_tutorial)/launch/robot_state.launch">
+    </include>
+     -->
+    <!-- Run the main MoveIt executable -->
+    <!-- <include file ="$( find mobile_manipulator_moveit_config )/launch/move_group.launch">
+      <arg name="publish_monitored_planning_scene" value="true" />
+    </include >
+     -->
+    <!-- Run Rviz and load the default config to see the state of the move_group node -->
+    <include file ="$(find mobile_manipulator_moveit_config)/launch/moveit_rviz.launch">
+        <arg name ="config" value ="true"/>
+    </include >
+
+    <!-- If database loading was enabled, start mongodb as well -->
+    <include file="$(find mobile_manipulator_moveit_config)/launch/default_warehouse_db.launch" if="$(arg db)">
+        <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
+    </include>
+
+
+</launch>
