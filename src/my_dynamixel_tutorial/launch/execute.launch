@@ -24,7 +24,7 @@
     <node pkg="timed_roslaunch" type="timed_roslaunch.sh"
         args="18  my_dynamixel_tutorial start_tilt_controller.launch"
         name="tilt_controller" output="screen" />
-    <node pkg ="tf" type ="static_transform_publisher" name ="camera_link_tf_broadcaster" args ="0.75 0 -0.11 1.57 0 0 camera_link bot 100" />
+    <node pkg ="tf" type ="static_transform_publisher" name ="camera_link_tf_broadcaster" args ="0.18 0.3 0.3 0 0 0 bot camera_link 100" />
 
 </launch>
 
