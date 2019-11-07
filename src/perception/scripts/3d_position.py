@@ -23,10 +23,6 @@ def on_new_centroid_array(data):
         y = array[centroid_array[1],centroid_array[0]][1] 
         z = array[centroid_array[1],centroid_array[0]][2]
         
-        # x = np.mean()
-
-        # print("--------------------------------------------")
-        # print("Centroid:",centroid_array)
         if not (math.isnan(x) or math.isnan(y) or math.isnan(z)):
             t_x +=x
             t_y +=y
@@ -37,17 +33,21 @@ def on_new_centroid_array(data):
             t_y/=10
             t_z/=10
             arr = [t_x,t_y,t_z]
-            counter = 0
-            
+            counter = 0    
             pub.publish(arr)
             print("XYZ:",arr)
-
+        if cv2.waitkey(10) == ord('x'):
+            cv2.destroyAllWindows()
+            rospy.shutdown()
+            sys.exit()
+    except:
+        continue
         
     except TypeError,ValueError:
         pass
 
 def listener():
-    rospy.init_node('listener', anonymous=True)
+    rospy.init_node('3d_position', anonymous=True)
     rospy.Subscriber("/camera/depth_registered/points", PointCloud2, on_new_point_cloud)
     rospy.Subscriber("/centroid", array, on_new_centroid_array)
 
