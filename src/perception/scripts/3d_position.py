@@ -7,6 +7,7 @@ import ros_numpy
 import numpy as np
 from perception.msg import array,array_float
 import math
+
 t_x,t_y,t_z = 0,0,0
 counter = 0 
 
@@ -19,10 +20,15 @@ def on_new_centroid_array(data):
     global array
     centroid_array = data.array
     try:
-        x = array[centroid_array[1],centroid_array[0]][0]
-        y = array[centroid_array[1],centroid_array[0]][1] 
-        z = array[centroid_array[1],centroid_array[0]][2]
-        
+        # x = array[centroid_array[1],centroid_array[0]][0]
+        # y = array[centroid_array[1],centroid_array[0]][1] 
+        # z = array[centroid_array[1],centroid_array[0]][2]
+
+        #Robot axis reconfiguration
+        x = array[centroid_array[1],centroid_array[0]][2]
+        y = -array[centroid_array[1],centroid_array[0]][0]
+        z = -array[centroid_array[1],centroid_array[0]][1]
+
         if not (math.isnan(x) or math.isnan(y) or math.isnan(z)):
             t_x +=x
             t_y +=y
