@@ -55,3 +55,18 @@ target_link_libraries(robot_model ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 install(TARGETS robot_model DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 install(DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 #####
+
+add_executable(add_collision_object src/add_collision_object.cpp)
+target_link_libraries(add_collision_object ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+add_executable(remove_collision_object src/remove_collision_object.cpp)
+target_link_libraries(remove_collision_object ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+add_executable(attach_detach_object src/attach_detach_object.cpp)
+target_link_libraries(attach_detach_object ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+add_executable(check_collision src/check_collision.cpp)
+target_link_libraries(check_collision ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+add_executable(pick_place src/pick_place.cpp)
+target_link_libraries(pick_place ${catkin_LIBRARIES} ${Boost_LIBRARIES})
