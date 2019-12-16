@@ -30,7 +30,7 @@ pub = rospy.Publisher("/gripper_controller/command", Float64, queue_size=10)
 
 def gripper_close():
     angle = -0.1
-    while(current_load < max_load):
+    while(1):                          #(current_load < max_load):
         pub.publish(angle)
         angle -= 0.1
 
@@ -40,13 +40,14 @@ def gripper_open():
         pub.publish(-0.1)
 
 
-if (len(sys.argv) == 2):
-    if (sys.argv[1] == "open"):
-        gripper_open()
-    elif(sys.argv[1] == "close"):
-        gripper_close()
-    else:
-        "Supported Arguments : open or close"
+gripper_close();
+# if (len(sys.argv) == 2):
+#     if (sys.argv[1] == "open"):
+#         gripper_open()
+#     elif(sys.argv[1] == "close"):
+#         gripper_close()
+#     else:
+#         "Supported Arguments : open or close"
 
 
 

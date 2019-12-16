@@ -266,6 +266,34 @@
     </collision> 
 </xacro:macro>
 
+<!-- GRIPPER MACRO-->
+<xacro:macro name="gripper_inertial" params="trans rpy">
+  <inertial>
+    <origin xyz="${trans}" rpy="${rpy}" />
+    <mass value="0.140" />
+    <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394" />
+  </inertial>
+</xacro:macro>
+
+<xacro:macro name="gripper_visual" params="trans rpy">
+  <visual>
+    <origin xyz="${trans}" rpy="${rpy}"/>
+    <geometry>
+      <mesh filename="package://mobile_manipulator/meshes/gripper_wheel.STL" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="orange"/>         
+  </visual>
+</xacro:macro>
+
+<xacro:macro name="gripper_collision" params="trans rpy">
+    <collision>
+      <origin xyz="${trans}" rpy="${rpy}"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/gripper_wheel.STL" scale="0.001 0.001 0.001"/>
+      </geometry>    
+    </collision> 
+</xacro:macro>
+
 
 =============================================================================================================================================
 <!-- LINKS -->
@@ -316,9 +344,15 @@
 
 
   <link name="wrist_roll_motor">
-    <xacro:wrist_roll_inertial trans="0.057 0.05 -0.015" rpy="-1.57 3.14 3.14"/>
-    <xacro:wrist_roll_visual trans="0.057 0.05 -0.015" rpy="-1.57 3.14 3.14"/>
-    <xacro:wrist_roll_collision trans="0.057 0.05 -0.015" rpy="-1.57 3.14 3.14"/> 
+    <xacro:wrist_roll_inertial trans="0.057 0.11 -0.01" rpy="-1.57 3.14 3.14"/>
+    <xacro:wrist_roll_visual trans="0.057 0.11 -0.01" rpy="-1.57 3.14 3.14"/>
+    <xacro:wrist_roll_collision trans="0.057 0.11 -0.01" rpy="-1.57 3.14 3.14"/> 
+  </link>
+
+  <link name="gripper_motor">
+  	<xacro:gripper_inertial trans="-0.016 0.016 0 " rpy="-1.57 1.57 3.14"/>
+    <xacro:gripper_visual trans="-0.016 0.016 0" rpy="-1.57 1.57 3.14"/>    
+    <xacro:gripper_collision trans="-0.016 0.016 0 " rpy="-1.57 1.57 3.14"/> 
   </link>
 
     
@@ -328,7 +362,8 @@
   <xacro:Revjoint id="shoulder_pitch" trans="0 0.010 0.040" rpy="0 0 0.0" parent="shoulder_bracket" child="shoulder_pitch_motor" axis="0 1 0" l="-1.59" u="1.97423327401" v="1.0"/>
   <xacro:Revjoint id="elbow" trans="${0.052 + (length) - 0.150} 0 0.2" rpy="0 0 0" parent="shoulder_pitch_motor" child="elbow_motor" axis="0 1 0" l="-1.9880391011" u="1.97730123558" v="1.0"/>
   
-  <xacro:Revjoint id="wrist_yaw" trans="0.015 -0.005 0.278 " rpy="0 0 0" parent="elbow_motor" child="wrist_yaw_motor" axis="0 0 1" l="-2.617" u="2.617" v="1.0"/>
+  <xacro:Revjoint id="wrist_yaw" trans=" 0.015 -0.005 0.278" rpy="0 0 0" parent="elbow_motor" child="wrist_yaw_motor" axis="0 0 1" l="-2.617" u="2.617" v="1.0"/>
   <xacro:Revjoint id="wrist_pitch" trans="0 0 0" rpy="0 0 0" parent="wrist_yaw_motor" child="wrist_pitch_motor" axis="0 1 0" l="-2.617" u="0.99" v="1.0"/> 
-  <xacro:Revjoint id="wrist_roll" trans="0 0 0" rpy="0 0 0" parent="wrist_pitch_motor" child="wrist_roll_motor" axis="1 0 0" l="-2.617" u="2.617" v="1.0"/>  
+  <xacro:Revjoint id="wrist_roll" trans="0 0 0" rpy="0 0 0" parent="wrist_pitch_motor" child="wrist_roll_motor" axis="1 0 0" l="-2.617" u="2.617" v="1.0"/> 
+  <xacro:Revjoint id="gripper" trans="0.1 0.0213 0.024" rpy="0 0 0" parent="wrist_roll_motor" child="gripper_motor" axis="0 0 1" l="-2.617" u="2.617" v="1.0"/>   
 </robot>
