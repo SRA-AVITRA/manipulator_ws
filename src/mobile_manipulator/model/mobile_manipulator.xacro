@@ -251,7 +251,7 @@
   <visual>
     <origin xyz="${trans}" rpy="${rpy}"/>
     <geometry>
-      <mesh filename="package://mobile_manipulator/meshes/wrist_roll.STL" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://mobile_manipulator/meshes/new_wrist_roll.STL" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="orange"/>         
   </visual>
@@ -261,7 +261,7 @@
     <collision>
       <origin xyz="${trans}" rpy="${rpy}"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/wrist_roll.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/new_wrist_roll.STL" scale="0.001 0.001 0.001"/>
       </geometry>    
     </collision> 
 </xacro:macro>

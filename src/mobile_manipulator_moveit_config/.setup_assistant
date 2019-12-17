@@ -6,6 +6,6 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/mobile_manipulator.srdf
   CONFIG:
-    author_name: aditya
-    author_email: adityagawali13@gmail.com
-    generated_timestamp: 1572874034
+    author_name: shambhavi kuthe
+    author_email: kutheshambhavi1@gmail.com
+    generated_timestamp: 1576498665

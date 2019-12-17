@@ -7,3 +7,6 @@ controller_list:
       - wrist_yaw
       - wrist_pitch
       - wrist_roll
+  - name: fake_end_eff_controller
+    joints:
+      - gripper
