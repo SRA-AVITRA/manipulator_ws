@@ -37,10 +37,10 @@ def gripper_close():
 
 def gripper_open():
     for i in range(5):
-        pub.publish(-0.1)
+        pub.publish(0.1)
 
 
-gripper_close();
+gripper_open();
 # if (len(sys.argv) == 2):
 #     if (sys.argv[1] == "open"):
 #         gripper_open()
