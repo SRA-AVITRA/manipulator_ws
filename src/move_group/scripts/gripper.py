@@ -1,8 +1,4 @@
 #!/usr/bin/env python
-
-
-
-
 import sys
 import copy
 import rospy

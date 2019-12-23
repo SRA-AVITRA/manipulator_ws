@@ -10,31 +10,41 @@ import numpy as np
 import ros_numpy
 
 
-node_name = "depth"
+node_name = "rgb"
 
 #Initialize the ros node
 rospy.init_node(node_name)
-# What we do during shutdown
-
 
 rospy.loginfo("Waiting for image topics...")
 
+# def depth_image_callback(ros_image):
+	# bridge = CvBridge()
+	# kernel = np.ones((2,2),np.uint8)
+	# try:
+		# frame = bridge.imgmsg_to_cv2(ros_image, "32FC1")
+	# except CvBridgeError, e:
+		# print e
+# 
+	# cv2.imshow("depth", frame)
+
+
+
 def image_callback(ros_image):
 	bridge = CvBridge()
-	try:
-		frame = bridge.imgmsg_to_cv2(ros_image, desired_encoding="passthrough")
+	kernel = np.ones((2,2),np.uint8)
+	
 
+	try:
+		frame = bridge.imgmsg_to_cv2(ros_image, "bgr8")
 	except CvBridgeError, e:
 		print e
 
+	cv2.imshow(node_name, frame)
 
-	cv2.imshow("depth",frame)
-
-	keystroke = cv2.waitKey(5)
-	if keystroke  == 27:
-
+	if cv2.waitKey(10) == ord('x'):
 		rospy.shutdown()
 		cv2.DestroyAllWindows()
+		sys.exit()
 
 
 def main(args):
@@ -43,8 +53,9 @@ def main(args):
 	except KeyboardInterrupt:
 		print "Shutting down vision node."
 		cv2.DestroyAllWindows()
+		rospy.shutdown()
 
 if __name__ == '__main__':
-	image_sub = rospy.Subscriber("/camera/aligned_depth_to_color/image_raw", Image,image_callback)
-	# pc2_pub = rospy.Publisher('object_points_pc2',PointCloud2,queue_size = 10)
+	image_sub = rospy.Subscriber("/camera/color/image_rect_color", Image,image_callback)
+	# image_sub = rospy.Subscriber("/camera/aligned_depth_to_color/image_raw", Image,depth_image_callback)
 	main(sys.argv)

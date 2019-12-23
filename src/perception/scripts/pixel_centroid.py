@@ -17,6 +17,8 @@ rospy.init_node(node_name)
 
 rospy.loginfo("Waiting for image topics...")
 
+
+
 def image_callback(ros_image):
 	bridge = CvBridge()
 	kernel = np.ones((2,2),np.uint8)
