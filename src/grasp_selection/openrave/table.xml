@@ -1,0 +1,30 @@
+<Environment>
+
+  <KinBody name="table">
+    <Body type="static" name="table_link">
+      <Geom type="box">
+        <Translation>0.80 -0.25 -0.245</Translation>
+        <extents>0.30 0.60 0.03</extents>
+      </Geom>
+    </Body>
+  </KinBody>
+
+  <KinBody name="sensors">
+    <Body type="static" name="sensors_link">
+      <Geom type="box">
+        <Translation> 0.21 0.0 0.2 </Translation>
+        <extents> 0.06 0.4 0.03 </extents>
+      </Geom>
+    </Body>
+  </KinBody>
+  
+  <KinBody name="breastplate">
+    <Body type="static" name="breastplate_link">
+      <Geom type="box">
+        <Translation>0.18 0.0 0.40</Translation>
+        <extents>0.03 0.03 0.19</extents>
+      </Geom>
+    </Body>
+  </KinBody>
+  
+</Environment>
