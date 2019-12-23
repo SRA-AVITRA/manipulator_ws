@@ -59,21 +59,21 @@
   </link>
   <link name="shoulder_bracket">
     <inertial>
-      <origin rpy="0 0 0 " xyz="-0.019 -0.062 0"/>
+      <origin rpy="1.57 0 1.57 " xyz="-0.159 -0.095 -0.07"/>
       <mass value="0.140"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0 " xyz="-0.019 -0.062 0"/>
+      <origin rpy="1.57 0 1.57 " xyz="-0.159 -0.095 -0.07"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw_brak.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw_plus.STL" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0 " xyz="-0.019 -0.062 0"/>
+      <origin rpy="1.57 0 1.57 " xyz="-0.159 -0.095 -0.07"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw_brak.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw_plus.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>

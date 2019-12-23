@@ -115,7 +115,7 @@
   <visual>
     <origin xyz="${trans}" rpy="${rpy}"/>
     <geometry>
-      <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw_brak.STL" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw_plus.STL" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="white"/>         
   </visual>
@@ -125,7 +125,7 @@
     <collision>
       <origin xyz="${trans}" rpy="${rpy}"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw_brak.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/shoulder_yaw_plus.STL" scale="0.001 0.001 0.001"/>
       </geometry>    
     </collision> 
 </xacro:macro>
@@ -311,9 +311,9 @@
   </link>
 
   <link name="shoulder_bracket">
-    <xacro:shoulder_yaw_brak_inertial trans="-0.019 -0.062 0" rpy="0 0 0 "/>
-    <xacro:shoulder_yaw_brak_visual trans="-0.019 -0.062 0" rpy="0 0 0 "/>
-    <xacro:shoulder_yaw_brak_collision trans="-0.019 -0.062 0" rpy="0 0 0 "/>
+    <xacro:shoulder_yaw_brak_inertial trans="-0.159 -0.095 -0.07" rpy="1.57 0 1.57 "/>
+    <xacro:shoulder_yaw_brak_visual trans="-0.159 -0.095 -0.07" rpy="1.57 0 1.57 "/>
+    <xacro:shoulder_yaw_brak_collision trans="-0.159 -0.095 -0.07" rpy="1.57 0 1.57 "/>
   </link>  
 
   <link name="shoulder_pitch_motor">
