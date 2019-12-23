@@ -7,3 +7,5 @@ arm_controller:
         min_velocity: 0.1
         constraints:
             goal_time: 0.25     
+
+   
