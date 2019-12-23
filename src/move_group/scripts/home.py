@@ -32,8 +32,8 @@ planning_frame = group_arm.get_planning_frame()
 group_arm.set_goal_tolerance(0.0001)
 group_arm.set_goal_orientation_tolerance(0.0001)
 
-eef_link = group_arm.get_end_effector_link()
-group_names = robot.get_group_names()
+# eef_link = group_arm.get_end_effector_link()
+# group_names = robot.get_group_names()
 
 change_joint_angles(group_arm, [0, 0, 0, 0, 0, 0])
 
