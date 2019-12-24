@@ -22,13 +22,14 @@ Soon to come! Let's get everything working first. I realize this is against rule
 5. TRAC-IK solver tested
 6. Perception using kinect started
 7. Gripper started
+8. IK FAST plugin
+9. Generating python base codes from tutorial
 
 ### Things to do
 
-1. IK FAST plugin
-2. Generating python base codes from tutorial
-3. getting started with c++ code for advanced usage
-4. Gripper design(Hardware and solidworks)
+1. getting started with c++ code for advanced usage
+2. Gripper design(Hardware and solidworks)
+3. Detect grasp orientation for detected objects
 
 ## Installations 
 sudo apt-get install ros-kinetic-dynamixel-controllers
