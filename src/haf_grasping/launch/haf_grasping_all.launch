@@ -22,14 +22,14 @@
 	<!-- PARAMETER DEFINITION -->
 	
 	<!-- define center position of area where grasps are searched -->
-	<rosparam param="grasp_search_center"> [0.0,0.0,0.0] </rosparam>
+	<rosparam param="grasp_search_center"> [0.0,0.0,0.2] </rosparam>
 	
 	<!-- define grasp search size, i.e. the region size where grasps are searched for; limit x: 0-18; limit y: 0-32 -->
 	<rosparam param="grasp_search_size_x"> 18 </rosparam>
 	<rosparam param="grasp_search_size_y"> 30 </rosparam>
 	
 	<!-- define approach direction of gripper (without gripper roll): moving direction is reversed (AV = (0,0,1) <=> gripper moving along -z-axis ) -->
-	<rosparam param="gripper_approach_vector"> [0,0,1] </rosparam>
+	<rosparam param="gripper_approach_vector"> [0,0,-1] </rosparam>
 	
 	<!-- define maximal calculation time max_calculation_time for finding grasps -->
 	<rosparam param="max_calculation_time"> 40 </rosparam>
