@@ -52,6 +52,7 @@ def image_callback(ros_image):
 	c_x = (x + w/2)
 	c_y = (y + h/2)
 	arr = [c_x,c_y]
+	# arr = [x, y ,h ,w]
 	print(arr)
 	centroid_pub.publish(arr)
 	img = cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
