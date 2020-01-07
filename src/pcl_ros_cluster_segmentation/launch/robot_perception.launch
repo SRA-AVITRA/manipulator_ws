@@ -1,0 +1,13 @@
+
+<!-- launch file for the perception pipeline  -->
+<!-- Author: Sean Cassero -->
+<launch>
+
+  <!-- segmentation -->
+  <node name= "segmentation" pkg= "pcl_ros_cluster_segmentation" type= "pcl_ros_cluster_segmentation_segmentation" respawn= "false"/>
+
+  <!-- marker generation -->
+  <node name= "marker_generation" pkg= "pcl_ros_cluster_segmentation" type= "marker_generation.py" respawn= "false"/>
+
+
+</launch>
