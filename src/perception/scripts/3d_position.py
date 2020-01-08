@@ -7,6 +7,7 @@ import ros_numpy
 import numpy as np
 from perception.msg import array,array_float
 import math
+import cv2
 
 t_x,t_y,t_z = 0,0,0
 counter = 0 
@@ -25,9 +26,9 @@ def on_new_centroid_array(data):
         # z = array[centroid_array[1],centroid_array[0]][2]
 
         #Robot axis reconfiguration
-        x = array[centroid_array[1],centroid_array[0]][2]
-        y = -array[centroid_array[1],centroid_array[0]][0]
-        z = -array[centroid_array[1],centroid_array[0]][1]
+        x = array[centroid_array[1],centroid_array[0]][0]
+        y = -array[centroid_array[1],centroid_array[0]][1]
+        z = array[centroid_array[1],centroid_array[0]][2]
 
         if not (math.isnan(x) or math.isnan(y) or math.isnan(z)):
             t_x +=x
@@ -42,12 +43,10 @@ def on_new_centroid_array(data):
             counter = 0    
             pub.publish(arr)
             print("XYZ:",arr)
-        if cv2.waitkey(10) == ord('x'):
+        if cv2.waitKey(10) == ord('x'):
             cv2.destroyAllWindows()
             rospy.shutdown()
             sys.exit()
-    except:
-        continue
         
     except TypeError,ValueError:
         pass

@@ -20,6 +20,7 @@ rospy.loginfo("Waiting for image topics...")
 
 def image_callback(ros_image):
 	bridge = CvBridge()
+	print("in")
 	kernel = np.ones((2,2),np.uint8)
 	lower_red = np.array([ 110.,   100.,  100.])
 	upper_red = np.array([ 120.,  220.,  210.])
@@ -72,7 +73,7 @@ def main(args):
 		cv2.DestroyAllWindows()
 
 if __name__ == '__main__':
-	image_sub = rospy.Subscriber("/camera/rgb/image_color", Image,image_callback)
+	image_sub = rospy.Subscriber("/camera/color/image_rect_color", Image,image_callback)
 	centroid_pub = rospy.Publisher('centroid', array, queue_size = 10)
 
 	main(sys.argv)

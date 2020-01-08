@@ -22,19 +22,20 @@ rospy.loginfo("Waiting for image topics...")
 def image_callback(ros_image):
 	bridge = CvBridge()
 	kernel = np.ones((2,2),np.uint8)
-	
+	lower = np.array([ 165.,   100.,  100.])
+	upper = np.array([ 185.,  220.,  210.])
 
 	try:
 		frame = bridge.imgmsg_to_cv2(ros_image, "bgr8")
 	except CvBridgeError, e:
 		print e
-	frame = cv2.flip(frame, 1)
-    bbox = cv2.selectROI(frame)
-    obj = hsv[int(bbox[1]):int(bbox[1]+bbox[3]), int(bbox[0]):int(bbox[0]+bbox[2])]
+#	frame = cv2.flip(frame, 1)
+#    bbox = cv2.selectROI(frame)
+#    obj = hsv[int(bbox[1]):int(bbox[1]+bbox[3]), int(bbox[0]):int(bbox[0]+bbox[2])]
 
-    h, s, v = np.median(obj[:,:,0]), np.median(obj[:,:,1]), np.median(obj[:,:,2])
-	lower = np.array([ h-10,   min(0,s-100),  min(0,v-100)])
-	upper = np.array([ h+10,  max(s+100,255),  max(v+100,255)])
+#    h, s, v = np.median(obj[:,:,0]), np.median(obj[:,:,1]), np.median(obj[:,:,2])
+#	lower = np.array([ h-10,   min(0,s-100),  min(0,v-100)])
+#	upper = np.array([ h+10,  max(s+100,255),  max(v+100,255)])
 
 	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 	mask = cv2.inRange(hsv, lower, upper)

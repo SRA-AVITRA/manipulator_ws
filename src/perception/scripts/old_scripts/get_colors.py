@@ -3,7 +3,7 @@
 import rospy 
 import sys
 import cv2
-from depth_calc.msg import array
+from perception.msg import array
 from sensor_msgs.msg import Image, CameraInfo
 from cv_bridge import CvBridge, CvBridgeError
 import numpy as np 
