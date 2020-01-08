@@ -32,5 +32,9 @@
         args="35  my_dynamixel_tutorial home.launch"
         name="home" output="screen" />
 
+    <node pkg="timed_roslaunch" type="timed_roslaunch.sh"
+        args="37  my_dynamixel_tutorial gripper.launch"
+        name="gripper" output="screen" />
+
 </launch>
 

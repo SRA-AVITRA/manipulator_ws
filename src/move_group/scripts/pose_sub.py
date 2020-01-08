@@ -61,19 +61,17 @@ off_y = 0 #0.46
 off_z = 0.17
 off_x = 0.135
 
-
-roll = 3.0329013541915026 #0
-pitch = 1.5045738202377112 #0
-yaw = 3.044896045079767 #1.57
-roll, pitch, yaw = -0.010236535202312786, 0.023526037055784085, 0.006135923151542565
+# roll = 3.0329013541915026 #0
+# pitch = 1.5045738202377112 #0
+# yaw = 3.044896045079767 #1.57
+roll, pitch, yaw = 0,0,0 #-0.010236535202312786, 0.023526037055784085, 0.006135923151542565
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
 def transform(x,y,z) :
     out = [0,0,0]
     sum_x, sum_y, sum_z = 0,0,0
-    out_x = round((z + bot_x-off_x)-0.22, 2)
+    out_x = round((z + bot_x + off_x)-0.29, 2)
     out_y = round(-(x - off_y ), 2) 
     out_z = round(((y - off_z) + bot_z), 2) 
-
 
     return out_x, out_y, out_z
 count = 0
