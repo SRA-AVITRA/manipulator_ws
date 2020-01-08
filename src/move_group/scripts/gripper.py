@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import sys
 import copy
 import rospy
@@ -12,7 +13,7 @@ from moveit_commander.conversions import pose_to_list, list_to_pose
 import tf
 import numpy as np
 
-max_load = 0.0624
+max_load = 0.125
 current_load = 0.0
 angle = -2.0
 
@@ -25,13 +26,13 @@ rospy.init_node('gripper', anonymous=True)
 
 
 def gripper_close():
-	angle = -2.0
-	while((current_load < max_load) & (angle <= -1.0)):
+	angle = -0.015
+	while((current_load < max_load) & (angle >= -0.84)):
 		pub.publish(angle)
-		angle += 0.009
+		angle -= 0.009
 
 def gripper_open():
-    pub.publish(-2.0)
+    pub.publish(-0.015)
 
 
 if __name__ == '__main__':

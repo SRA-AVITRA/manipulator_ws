@@ -29,7 +29,7 @@
 	<rosparam param="grasp_search_size_y"> 30 </rosparam>
 	
 	<!-- define approach direction of gripper (without gripper roll): moving direction is reversed (AV = (0,0,1) <=> gripper moving along -z-axis ) -->
-	<rosparam param="gripper_approach_vector"> [0,0,-1] </rosparam>
+	<rosparam param="gripper_approach_vector"> [0,0,1] </rosparam>
 	
 	<!-- define maximal calculation time max_calculation_time for finding grasps -->
 	<rosparam param="max_calculation_time"> 40 </rosparam>
