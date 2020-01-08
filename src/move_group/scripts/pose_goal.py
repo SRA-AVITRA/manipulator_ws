@@ -45,7 +45,7 @@ def transform(x,y,z) :
         sum_y += out_y
         sum_z += out_z
 
-    return sum_x/100, sum_y/100, sum_z/100
+    
 
     return sum_x/100, sum_y/100, sum_z/100
 

@@ -17,6 +17,8 @@ rospy.init_node(node_name)
 
 rospy.loginfo("Waiting for image topics...")
 
+lower = np.array([ 110.,   100.,  100.])
+upper = np.array([ 120.,  220.,  210.])
 
 
 def image_callback(ros_image):

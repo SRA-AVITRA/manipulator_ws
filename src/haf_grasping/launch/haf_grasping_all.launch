@@ -22,7 +22,7 @@
 	<!-- PARAMETER DEFINITION -->
 	
 	<!-- define center position of area where grasps are searched -->
-	<rosparam param="grasp_search_center"> [0.0,0.0,0.0] </rosparam>
+	<rosparam param="grasp_search_center"> [0.0,0.0,0.2] </rosparam>
 	
 	<!-- define grasp search size, i.e. the region size where grasps are searched for; limit x: 0-18; limit y: 0-32 -->
 	<rosparam param="grasp_search_size_x"> 18 </rosparam>
