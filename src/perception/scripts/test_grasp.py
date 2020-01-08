@@ -19,7 +19,7 @@ rospy.init_node(node_name)
 
 rospy.loginfo("Waiting for image topics...")
 
-def image_callback(ros_image):
+def depth_image_callback(ros_image):
 	bridge = CvBridge()
 	try:
 		frame = bridge.imgmsg_to_cv2(ros_image, desired_encoding="passthrough")
@@ -45,6 +45,7 @@ def main(args):
 		cv2.DestroyAllWindows()
 
 if __name__ == '__main__':
-	image_sub = rospy.Subscriber("/camera/aligned_depth_to_color/image_raw", Image,image_callback)
+	depth_sub = rospy.Subscriber("/camera/aligned_depth_to_color/image_raw", Image,depth_image_callback)
+
 	# pc2_pub = rospy.Publisher('object_points_pc2',PointCloud2,queue_size = 10)
 	main(sys.argv)

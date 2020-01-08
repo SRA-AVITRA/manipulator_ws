@@ -22,13 +22,32 @@ group = moveit_commander.MoveGroupCommander(group_name)
 
 display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',moveit_msgs.msg.DisplayTrajectory,queue_size=20)
 
+bot_x = 0.18
+bot_y = 0
+bot_z = 0.28
+off_y = 0.46
+off_z = 0.055
 
-
-roll = 0
-pitch = 0
-yaw = 1.57
-
+roll = 3.0329013541915026 #0
+pitch = 1.5045738202377112 #0
+yaw = 3.044896045079767 #1.57
+roll, pitch, yaw = -0.010236535202312786, 0.023526037055784085, 0.006135923151542565
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
+def transform(x,y,z) :
+    out = [0,0,0]
+    sum_x, sum_y, sum_z = 0,0,0
+    out_x = round((z + bot_x)-0.22, 2)
+    out_y = round(-(x - off_y ), 2) 
+    out_z = round((-(y - off_z) + bot_z), 2) 
+
+    for i in range(100):  
+        sum_x += out_x
+        sum_y += out_y
+        sum_z += out_z
+
+    return sum_x/100, sum_y/100, sum_z/100
+
+    return sum_x/100, sum_y/100, sum_z/100
 
 if (len(sys.argv) == 2):
     if(sys.argv[1]== "home"): 
@@ -54,10 +73,13 @@ else:
     pose_goal.orientation.x = quat[0]
     pose_goal.orientation.y = quat[1]
     pose_goal.orientation.z = quat[2]
-
-    pose_goal.position.x = 0.3
-    pose_goal.position.y = 0.3
-    pose_goal.position.z = 0.3
+    # [-0.033141941, 0.0059073088, 0.185]
+    pose_goal.position.x, pose_goal.position.y, pose_goal.position.z =  transform(0, 0.11, 0.39)
+   # [-0.042422794, 0.11115891, 0.39400002]
+#transform(0.346233978271, 0.0664755020142, 0.44) #transform(data.array[0], data.array[1], data.array[2])
+    # pose_goal.position.x = transform(34.6233978271 6.64755020142, 32)
+    # pose_goal.position.y = 
+    # pose_goal.position.z = 
 
     group.set_pose_target(pose_goal)
 

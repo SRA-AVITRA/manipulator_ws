@@ -9,7 +9,11 @@ from cv_bridge import CvBridge, CvBridgeError
 import numpy as np 
 import ros_numpy
 import message_filters
+<<<<<<< HEAD
 import matplotlib.pyplot as plt
+=======
+import argparse
+>>>>>>> 93789c858789083e425ce2676e58cdc16219e0ec
 # class Server:
 #     def __init__(self):
 #         self.rgb = None
@@ -47,10 +51,15 @@ import matplotlib.pyplot as plt
 #             self.rgb[:,:,2] = self.depth
 #             print(type(self.rgb))
 
+<<<<<<< HEAD
 i = 1 
 def image_callback(ros_rgb, ros_depth):
     a = input('Press enter to continue')
     global i
+=======
+global path
+def image_callback(ros_rgb, ros_depth):
+>>>>>>> 93789c858789083e425ce2676e58cdc16219e0ec
     bridge = CvBridge()
     try:
         rgb = bridge.imgmsg_to_cv2(ros_rgb, "bgr8")
@@ -61,6 +70,7 @@ def image_callback(ros_rgb, ros_depth):
 
     kernel = np.ones((2,2),np.uint8)
 
+<<<<<<< HEAD
     cv2.imwrite('/home/shambhavi/manipulator_ws/src/perception/scripts/color.png',rgb)
     cv2.imwrite('/home/shambhavi/manipulator_ws/src/perception/scripts/depth.png',depth)
     color = cv2.imread('/home/shambhavi/manipulator_ws/src/perception/scripts/color.png')
@@ -71,6 +81,28 @@ def image_callback(ros_rgb, ros_depth):
 
 if __name__ == '__main__':
     print("writing")
+=======
+    cv2.imwrite('/home/avitra/manipulator_ws/src/perception/scripts/color_'+path+'.png',rgb)
+    cv2.imwrite('/home/avitra/manipulator_ws/src/perception/scripts/depth_'+path+'.png',depth)
+    color = cv2.imread('/home/avitra/manipulator_ws/src/perception/scripts/color_'+path+'.png')
+    depth = cv2.imread('/home/avitra/manipulator_ws/src/perception/scripts/depth_'+path+'.png',0)
+    color[:,:,0] = depth
+    print("writing")
+    cv2.imwrite('/home/avitra/manipulator_ws/src/perception/scripts/rgd_'+path+'.png',color)
+    
+def parse_args():
+    """Parse input arguments."""
+    parser = argparse.ArgumentParser(description='Data prep')
+    parser.add_argument('--path', default='0')
+    args = parser.parse_args()
+    return args
+
+if __name__ == '__main__':
+    print("writing")
+    args = parse_args()
+    path = args.path
+    print path
+>>>>>>> 93789c858789083e425ce2676e58cdc16219e0ec
     rospy.init_node('rgb')
 
     rgb_sub = message_filters.Subscriber('/camera/color/image_rect_color', Image)
