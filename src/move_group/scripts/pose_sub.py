@@ -56,9 +56,9 @@ display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path
 
 bot_x = 0.18
 bot_y = 0
-bot_z = 0.28
+bot_z = 0.31 #0.28 
 off_y = 0 #0.46
-off_z = 0.17
+off_z = 0.135
 off_x = 0.135
 
 # roll = 3.0329013541915026 #0
