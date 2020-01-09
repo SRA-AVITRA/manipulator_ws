@@ -32,9 +32,22 @@ Soon to come! Let's get everything working first. I realize this is against rule
 3. Detect grasp orientation for detected objects
 
 ## Installations 
+
+1. Manipulator
+```
 sudo apt-get install ros-kinetic-dynamixel-controllers
 sudo apt install ros-kinetic-moveit
 sudo apt-get install ros-kinetic-trac-ik-kinematics-plugin
+sudo apt-get install ros-kinetic-timed-roslaunch
+```
+2. Perception
+```
+sudo apt-get install ros-kinetic-realsense2*
+sudo apt-get insatall ros-kinetic-librealsense2
+sudo apt-get insatall ros-kinetic-librealsense2-dev
+sudo apt-get insatall ros-kinetic-librealsense2-dkms
+sudo apt-get insatall ros-kinetic-librealsense2-utils
+```
 
 ## For manipulator 
 1. Start manipulator
@@ -46,18 +59,17 @@ sudo apt-get install ros-kinetic-trac-ik-kinematics-plugin
 
 2.  Run python scripts from move_group
 
-### For Perception Pipeline
+## Perception Pipeline 
+1. Start the RealSense Node
+    
+    ```roslaunch realsense2_camera rs_rgbd.launch```
+    
+2. Start the pixel centroid and physical centroid nodes
 
-    roslaunch openni_launch openni.launch
-    rosrun perception pixel_xy.py
-    rosrun perception depth_from_pixels.py
-    To extract colour from object, run "rosrun perception get_colors.py" and select a bounding box of the relevant objects. This will print the hsv values of the object. Enter these values in the pixel_xy.py script in place of lowerRed and upperRed values
-
-### To install openni and associated packages for perception
-
-    sudo apt-get install ros-kinetic-openni-camera
-    sudo apt-get install ros-kinetic-openni-launch
-    sudo apt-get install ros-kinetic-ros-numpy
-    sudo apt-get install ros-kinetic-cv-bridge
-    sudo apt-get install ros-kinetic-vision-opencv
+    ```rosrun perception pixel_centroid.py```
+    ```rosrun perception position_3d.py```
+ 
+3. Segmentation 
+ 
+    ```rosrun my_pcl_tutorial segmentation```
 
