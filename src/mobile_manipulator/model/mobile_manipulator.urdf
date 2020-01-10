@@ -179,21 +179,21 @@
   </link>
   <link name="gripper_motor">
     <inertial>
-      <origin rpy="-1.57 1.57 3.14" xyz="-0.016 0.016 0 "/>
+      <origin rpy="0 0 -1.57" xyz="0.024 -0.004 -0.05 "/>
       <mass value="0.140"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="-1.57 1.57 3.14" xyz="-0.016 0.016 0"/>
+      <origin rpy="0 0 -1.57" xyz="0.024 -0.004 -0.05"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/gripper_wheel.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/gripper.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="orange"/>
     </visual>
     <collision>
-      <origin rpy="-1.57 1.57 3.14" xyz="-0.016 0.016 0 "/>
+      <origin rpy="0 0 -1.57" xyz="0.024 -0.004 -0.05 "/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/gripper_wheel.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/gripper.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>

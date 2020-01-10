@@ -279,7 +279,7 @@
   <visual>
     <origin xyz="${trans}" rpy="${rpy}"/>
     <geometry>
-      <mesh filename="package://mobile_manipulator/meshes/gripper_wheel.STL" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://mobile_manipulator/meshes/gripper.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="orange"/>         
   </visual>
@@ -289,7 +289,7 @@
     <collision>
       <origin xyz="${trans}" rpy="${rpy}"/>
       <geometry>
-        <mesh filename="package://mobile_manipulator/meshes/gripper_wheel.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mobile_manipulator/meshes/gripper.stl" scale="0.001 0.001 0.001"/>
       </geometry>    
     </collision> 
 </xacro:macro>
@@ -350,9 +350,9 @@
   </link>
 
   <link name="gripper_motor">
-  	<xacro:gripper_inertial trans="-0.016 0.016 0 " rpy="-1.57 1.57 3.14"/>
-    <xacro:gripper_visual trans="-0.016 0.016 0" rpy="-1.57 1.57 3.14"/>    
-    <xacro:gripper_collision trans="-0.016 0.016 0 " rpy="-1.57 1.57 3.14"/> 
+  	<xacro:gripper_inertial trans="0.024 -0.004 -0.05 " rpy="0 0 -1.57"/>
+    <xacro:gripper_visual trans="0.024 -0.004 -0.05" rpy="0 0 -1.57"/>    
+    <xacro:gripper_collision trans="0.024 -0.004 -0.05 " rpy="0 0 -1.57"/> 
   </link>
 
     
