@@ -38,5 +38,5 @@ controller_list:
     action_ns: follow_joint_trajectory
     default: True
     type: FollowJointTrajectory
-    joint:
+    joints:
       gripper
