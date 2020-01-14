@@ -35,15 +35,18 @@ def change_end_pose(group, input_pose):
     group.stop()
     group.clear_pose_targets()
 
-roll = 0
+roll = 0 
 pitch = 0
 yaw = 0
+# roll = -0.974681390288264  
+# pitch = -0.4256494427892773
+# yaw = 1.5285175517752887
 
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
 
 home = [0.3, 0.3, 0.4, quat[0], quat[1],quat[2],quat[3]]
 
-test = [0.6, 0.3, 0.3, quat[0], quat[1],quat[2],quat[3]]
+test = [0.6, 0.17, 0.52, quat[0], quat[1],quat[2],quat[3]]
 
 zdownby1_5 = [0.114535965537,-0.000209275828715,0.516932398762,-0.530234925441,-0.54221513755,0.458969531642,0.462818147308]
 

@@ -1,0 +1,20 @@
+controller_manager_ns: controller_manager
+controller_list:
+ - name: arm_controller
+   action_ns: follow_joint_trajectory
+   type: FollowJointTrajectory
+   default: true
+   joints:
+      - shoulder_yaw
+      - shoulder_pitch
+      - elbow
+      - wrist_pitch
+      - wrist_yaw
+      - wrist_roll
+ - name: end_eff_controller
+   action_ns: gripper_action
+   type: GripperCommand
+   default: true
+   joint:
+      - gripper
+    
