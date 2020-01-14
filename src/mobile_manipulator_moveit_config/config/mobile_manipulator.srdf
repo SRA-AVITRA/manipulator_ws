@@ -10,7 +10,6 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="arm">
-        <joint name="map" />
         <joint name="bot_joint" />
         <joint name="shoulder_yaw" />
         <joint name="shoulder_pitch" />
@@ -18,9 +17,7 @@
         <joint name="wrist_yaw" />
         <joint name="wrist_pitch" />
         <joint name="wrist_roll" />
-    </group>
-    <group name="end_eff">
-        <link name="gripper_motor" />
+        <joint name="end_eff_joint" />
     </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
     <group_state name="home" group="arm">
@@ -40,30 +37,32 @@
         <joint name="wrist_yaw" value="0" />
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="gripper" parent_link="wrist_roll_motor" group="end_eff" />
+    <end_effector name="gripper" parent_link="end_effector_link" group="arm" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="map" type="fixed" parent_frame="world" child_link="bot" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="bot" link2="shoulder_bracket" reason="Never" />
     <disable_collisions link1="bot" link2="shoulder_yaw_motor" reason="Adjacent" />
+    <disable_collisions link1="elbow_motor" link2="end_effector_link" reason="Never" />
     <disable_collisions link1="elbow_motor" link2="shoulder_bracket" reason="Never" />
     <disable_collisions link1="elbow_motor" link2="shoulder_pitch_motor" reason="Adjacent" />
     <disable_collisions link1="elbow_motor" link2="shoulder_yaw_motor" reason="Never" />
     <disable_collisions link1="elbow_motor" link2="wrist_pitch_motor" reason="Never" />
     <disable_collisions link1="elbow_motor" link2="wrist_yaw_motor" reason="Adjacent" />
-    <disable_collisions link1="gripper_motor" link2="shoulder_pitch_motor" reason="Never" />
-    <disable_collisions link1="gripper_motor" link2="wrist_roll_motor" reason="Adjacent" />
+    <disable_collisions link1="end_effector_link" link2="shoulder_pitch_motor" reason="Never" />
+    <disable_collisions link1="end_effector_link" link2="shoulder_yaw_motor" reason="Never" />
+    <disable_collisions link1="end_effector_link" link2="wrist_pitch_motor" reason="Never" />
+    <disable_collisions link1="end_effector_link" link2="wrist_roll_motor" reason="Adjacent" />
+    <disable_collisions link1="end_effector_link" link2="wrist_yaw_motor" reason="Never" />
     <disable_collisions link1="shoulder_bracket" link2="shoulder_pitch_motor" reason="Adjacent" />
     <disable_collisions link1="shoulder_bracket" link2="shoulder_yaw_motor" reason="Adjacent" />
     <disable_collisions link1="shoulder_bracket" link2="wrist_pitch_motor" reason="Never" />
-    <disable_collisions link1="shoulder_bracket" link2="wrist_roll_motor" reason="Never" />
     <disable_collisions link1="shoulder_bracket" link2="wrist_yaw_motor" reason="Never" />
     <disable_collisions link1="shoulder_pitch_motor" link2="shoulder_yaw_motor" reason="Never" />
     <disable_collisions link1="shoulder_pitch_motor" link2="wrist_pitch_motor" reason="Never" />
     <disable_collisions link1="shoulder_pitch_motor" link2="wrist_roll_motor" reason="Never" />
     <disable_collisions link1="shoulder_pitch_motor" link2="wrist_yaw_motor" reason="Never" />
     <disable_collisions link1="shoulder_yaw_motor" link2="wrist_pitch_motor" reason="Never" />
-    <disable_collisions link1="shoulder_yaw_motor" link2="wrist_roll_motor" reason="Never" />
     <disable_collisions link1="shoulder_yaw_motor" link2="wrist_yaw_motor" reason="Never" />
     <disable_collisions link1="wrist_pitch_motor" link2="wrist_roll_motor" reason="Adjacent" />
     <disable_collisions link1="wrist_pitch_motor" link2="wrist_yaw_motor" reason="Adjacent" />

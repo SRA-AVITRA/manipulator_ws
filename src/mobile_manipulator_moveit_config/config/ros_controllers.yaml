@@ -15,7 +15,6 @@ hardware_interface:
     - wrist_yaw
     - wrist_pitch
     - wrist_roll
-    - gripper
   sim_control_mode: 1  # 0: position, 1: velocity
 # Publish all joint states
 # Creates the /joint_states topic necessary in ROS
@@ -34,9 +33,3 @@ controller_list:
       - wrist_yaw
       - wrist_pitch
       - wrist_roll
-  - name: end_eff_controller
-    action_ns: follow_joint_trajectory
-    default: True
-    type: FollowJointTrajectory
-    joints:
-      gripper
