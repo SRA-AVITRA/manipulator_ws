@@ -90,18 +90,18 @@ def transform(x,y,z) :
 count = 0
 
 def cartesian_XYZ(x,y,z):
-    scale = 0.01
+    scale = 0.1
     waypoints = []
-    wpose = move_group.get_current_pose().pose
+    wpose = group.get_current_pose().pose
     wpose.position.x += scale * x
     wpose.position.y += scale * y
     wpose.position.z += scale * z
     waypoints.append(copy.deepcopy(wpose))
-    (plan, fraction) = move_group.compute_cartesian_path(
+    (plan, fraction) = group.compute_cartesian_path(
                                    waypoints,   # waypoints to follow
                                    0.001,        # eef_step
                                    5)         # jump_threshold
-    move_group.execute(plan, wait=True)
+    group.execute(plan, wait=True)
         
 
 
@@ -128,6 +128,7 @@ def callback_xy(data):
 
         group.stop()
         group.clear_pose_targets()
+        cartesian_XYZ(40,0,0)
         count+=1
 
          
@@ -135,4 +136,6 @@ def callback_xy(data):
 if __name__ == "__main__":
     rospy.Subscriber("/position",array_float,callback_xy)
     rospy.spin()
+
+
 
