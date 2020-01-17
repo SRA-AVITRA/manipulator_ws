@@ -57,7 +57,7 @@ def init(group):
     print("START")
     
     
-scale = 0.01
+scale = 0.1
 
 def draw(x,y,z):
     waypoints = []
@@ -74,13 +74,11 @@ def draw(x,y,z):
     print(fraction)
 
 
-init(move_group)
+#init(move_group)
 #change_joint_angles(move_group,[0,0,0,0,0,0])
 
-draw(0,10,0)
-draw(10,0,0)
-draw(0,-10,0)
-draw(-10,0,0)
+draw(5,0,0)
+
 
 
 

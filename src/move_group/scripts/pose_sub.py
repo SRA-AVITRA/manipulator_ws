@@ -62,8 +62,7 @@ off_z = 0.079
 off_x = 0.19
 play_off_z = 0.05
 play_off_y = 0.06
-
-
+cartesian_off = 0
   #   x: 0.552762909397
   #   y: 0.0251256479415
   #   z: 0.401609577797
@@ -83,12 +82,28 @@ quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
 def transform(x,y,z) :
     out = [0,0,0]
     sum_x, sum_y, sum_z = 0,0,0
-    out_x = round((z + bot_x + off_x), 2)
+    out_x = round((z + bot_x + off_x - cartesian_off), 2)
     out_y = round(-(x - off_y ) + play_off_y, 2) 
     out_z = round(((y - off_z) + bot_z + play_off_z), 2) 
 
     return out_x, out_y, out_z
 count = 0
+
+def cartesian_XYZ(x,y,z):
+    scale = 0.01
+    waypoints = []
+    wpose = move_group.get_current_pose().pose
+    wpose.position.x += scale * x
+    wpose.position.y += scale * y
+    wpose.position.z += scale * z
+    waypoints.append(copy.deepcopy(wpose))
+    (plan, fraction) = move_group.compute_cartesian_path(
+                                   waypoints,   # waypoints to follow
+                                   0.001,        # eef_step
+                                   5)         # jump_threshold
+    move_group.execute(plan, wait=True)
+        
+
 
 
 def callback_xy(data):
