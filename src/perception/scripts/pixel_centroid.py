@@ -17,15 +17,15 @@ rospy.init_node(node_name)
 
 rospy.loginfo("Waiting for image topics...")
 
-lower = np.array([ 110.,   100.,  100.])
-upper = np.array([ 120.,  220.,  210.])
-
+# lower = np.array([ 110.,   100.,  100.])
+# upper = np.array([ 120.,  220.,  210.])
+# ('[', 158.0, 67.0, 193.0, ']')
 
 def image_callback(ros_image):
 	bridge = CvBridge()
 	kernel = np.ones((2,2),np.uint8)
-	lower = np.array([ 165.,   100.,  100.])
-	upper = np.array([ 185.,  220.,  210.])
+	lower = np.array([ 155.,   40.,  100.])
+	upper = np.array([ 170.,  250.,  250.])
 
 	try:
 		frame = bridge.imgmsg_to_cv2(ros_image, "bgr8")
@@ -44,7 +44,7 @@ def image_callback(ros_image):
 	mask = cv2.bilateralFilter(mask,9,75,75)
 	mask = cv2.dilate(mask,kernel,iterations=1)
 
-	cv2.imshow("mask",mask)
+	# cv2.imshow("mask",mask)
 	_, contours, hR = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 	
 	idx,current_max,counter = 0, 0, 0	

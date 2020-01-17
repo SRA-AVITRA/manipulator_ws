@@ -28,10 +28,10 @@ bot_z = 0.28
 off_y = 0.46
 off_z = 0.055
 
-roll = 3.0329013541915026 #0
-pitch = 1.5045738202377112 #0
-yaw = 3.044896045079767 #1.57
-roll, pitch, yaw = -0.010236535202312786, 0.023526037055784085, 0.006135923151542565
+# roll = 3.0329013541915026 #0
+# pitch = 1.5045738202377112 #0
+# yaw = 3.044896045079767 #1.57
+roll, pitch, yaw = 0,0,0
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
 def transform(x,y,z) :
     out = [0,0,0]
@@ -74,7 +74,7 @@ else:
     pose_goal.orientation.y = quat[1]
     pose_goal.orientation.z = quat[2]
     # [-0.033141941, 0.0059073088, 0.185]
-    pose_goal.position.x, pose_goal.position.y, pose_goal.position.z =  transform(0, 0.11, 0.39)
+    pose_goal.position.x, pose_goal.position.y, pose_goal.position.z =  transform(0.47, 0.02, 0.57)#transform(0, 0.11, 0.39) 
    # [-0.042422794, 0.11115891, 0.39400002]
 #transform(0.346233978271, 0.0664755020142, 0.44) #transform(data.array[0], data.array[1], data.array[2])
     # pose_goal.position.x = transform(34.6233978271 6.64755020142, 32)

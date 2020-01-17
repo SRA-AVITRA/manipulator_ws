@@ -58,9 +58,11 @@ bot_x = 0.18
 bot_y = 0
 bot_z = 0.31 #0.28 
 off_y = 0 #0.46
-off_z = 0.135
-off_x = 0.135
-play_off = 0.15
+off_z = 0.079
+off_x = 0.19
+play_off_z = 0.05
+play_off_y = 0.06
+
 
   #   x: 0.552762909397
   #   y: 0.0251256479415
@@ -71,6 +73,8 @@ play_off = 0.15
   #   z: 0.00671367236471
   #   w: 0.99887414579 
 # roll = 3.0329013541915026 #0
+# lower = np.array([ 110.,   100.,  100.])
+# upper = np.array([ 120.,  220.,  210.])
 # pitch = 1.5045738202377112 #0
 # yaw = 3.044896045079767 #1.57
 roll, pitch, yaw = 0, 0,0
@@ -80,8 +84,8 @@ def transform(x,y,z) :
     out = [0,0,0]
     sum_x, sum_y, sum_z = 0,0,0
     out_x = round((z + bot_x + off_x), 2)
-    out_y = round(-(x - off_y ), 2) 
-    out_z = round(((y - off_z) + bot_z + play_off), 2) 
+    out_y = round(-(x - off_y ) + play_off_y, 2) 
+    out_z = round(((y - off_z) + bot_z + play_off_z), 2) 
 
     return out_x, out_y, out_z
 count = 0
@@ -111,6 +115,7 @@ def callback_xy(data):
         group.clear_pose_targets()
         count+=1
 
+         
 
 if __name__ == "__main__":
     rospy.Subscriber("/position",array_float,callback_xy)

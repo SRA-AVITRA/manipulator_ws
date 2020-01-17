@@ -42,9 +42,12 @@ yaw = 0
 # pitch = -0.4256494427892773
 # yaw = 1.5285175517752887
 
+
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
 
 home = [0.3, 0.3, 0.4, quat[0], quat[1],quat[2],quat[3]]
+
+post_grasp = [-0.14, -0.24, 0.53, quat[0], quat[1],quat[2],quat[3]  ]
 
 test = [0.6, 0.17, 0.52, quat[0], quat[1],quat[2],quat[3]]
 
@@ -73,6 +76,8 @@ if (len(sys.argv) == 2):
        change_joint_angles(group_arm, [0, 0, 0, 0, 0, 0])
     elif(sys.argv[1] == "test"):
         change_end_pose(group_arm, test)
+    elif(sys.argv[1] == "post_grasp"):
+        change_end_pose(group_arm, post_grasp)
     else:
         "Supported Arguments : home"
 else:        

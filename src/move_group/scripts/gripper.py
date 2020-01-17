@@ -28,7 +28,8 @@ rospy.init_node('gripper', anonymous=True)
 def gripper_close():
 	global angle
 	gripper_open()
-	while((current_load < max_load) & (angle >= -0.84)):
+	# while((current_load < max_load) & (angle >= -0.84)):
+	while(angle >= -0.84):
 		pub.publish(angle)
 		angle -= 0.009
 
