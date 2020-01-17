@@ -62,7 +62,7 @@ off_z = 0.079
 off_x = 0.19
 play_off_z = 0.05
 play_off_y = 0.06
-cartesian_off = 0
+cartesian_off = 0.05
   #   x: 0.552762909397
   #   y: 0.0251256479415
   #   z: 0.401609577797
