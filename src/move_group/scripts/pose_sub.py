@@ -6,17 +6,11 @@ import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
 from math import pi
-from std_msgs.msg import String
+from std_msgs.msg import String , Float64
+from dynamixel_msgs.msg import JointState
 from moveit_commander.conversions import pose_to_list
 import tf
 from perception.msg import array_float, array
-
-# bot_x = 0.18
-# bot_y = 0
-# bot_z = 0.28
-# off_y = 0#0.46
-# off_z = 0.047#0.055
-# off_x = 0.265
 
 moveit_commander.roscpp_initialize(sys.argv)
 rospy.init_node('pose_goal',anonymous=True)
@@ -30,30 +24,6 @@ group = moveit_commander.MoveGroupCommander(group_name)
 group.set_goal_tolerance(0.0005)
 display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',moveit_msgs.msg.DisplayTrajectory,queue_size=20)
 
-
-# roll = 0
-# pitch = 0
-# yaw = 0
-# quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
-
-# def transform(x,y,z) :
-#     out = [0,0,0]
-#     sum_x, sum_y, sum_z = 0,0,0
-#     # out_x = round((z + bot_x)-0.22, 2)
-#     # out_y = round(-(x - off_y ), 2) 
-#     # out_z = round((-(y - off_z) + bot_z), 2)
-#     out_x = round((-y-+off_x + bot_x) 2)
-#     out_y = round((x),2)
-#     out_z = round((-z +bot_z -off_z),2) 
-
-#     for i in range(100):  
-#         sum_x += out_x
-#         sum_y += out_y
-#         sum_z += out_z
-
-#     return sum_x/100, sum_y/100, sum_z/100
-
-
 bot_x = 0.18
 bot_y = 0
 bot_z = 0.31 #0.28 
@@ -63,22 +33,10 @@ off_x = 0.19
 play_off_z = 0.05
 play_off_y = 0.06
 cartesian_off = 0.05
-  #   x: 0.552762909397
-  #   y: 0.0251256479415
-  #   z: 0.401609577797
-  # orientation: 
-  #   x: -0.0164723810329
-  #   y: 0.0439775867701
-  #   z: 0.00671367236471
-  #   w: 0.99887414579 
-# roll = 3.0329013541915026 #0
-# lower = np.array([ 110.,   100.,  100.])
-# upper = np.array([ 120.,  220.,  210.])
-# pitch = 1.5045738202377112 #0
-# yaw = 3.044896045079767 #1.57
+
 roll, pitch, yaw = 0, 0,0
-#0,0,0 #-0.010236535202312786, 0.023526037055784085, 0.006135923151542565
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
+
 def transform(x,y,z) :
     out = [0,0,0]
     sum_x, sum_y, sum_z = 0,0,0
@@ -87,24 +45,9 @@ def transform(x,y,z) :
     out_z = round(((y - off_z) + bot_z + play_off_z), 2) 
 
     return out_x, out_y, out_z
+    
 count = 0
-
-def cartesian_XYZ(x,y,z):
-    scale = 0.1
-    waypoints = []
-    wpose = group.get_current_pose().pose
-    wpose.position.x += scale * x
-    wpose.position.y += scale * y
-    wpose.position.z += scale * z
-    waypoints.append(copy.deepcopy(wpose))
-    (plan, fraction) = group.compute_cartesian_path(
-                                   waypoints,   # waypoints to follow
-                                   0.001,        # eef_step
-                                   5)         # jump_threshold
-    group.execute(plan, wait=True)
         
-
-
 
 def callback_xy(data):
     global count
@@ -123,15 +66,14 @@ def callback_xy(data):
         plan = group.go(wait=True)
         if(plan):
             print "MOVED"
+        
         else:
             print "FAILED"
-
+            
         group.stop()
         group.clear_pose_targets()
-        cartesian_XYZ(40,0,0)
-        count+=1
 
-         
+        count+=1
 
 if __name__ == "__main__":
     rospy.Subscriber("/position",array_float,callback_xy)

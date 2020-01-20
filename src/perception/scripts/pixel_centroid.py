@@ -24,6 +24,7 @@ rospy.loginfo("Waiting for image topics...")
 def image_callback(ros_image):
 	bridge = CvBridge()
 	kernel = np.ones((2,2),np.uint8)
+	#Pink
 	# lower = np.array([ 155.,   40.,  100.])
 	# upper = np.array([ 170.,  250.,  250.])
 	

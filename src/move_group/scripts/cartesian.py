@@ -68,7 +68,7 @@ def draw(x,y,z):
     waypoints.append(copy.deepcopy(wpose))
     (plan, fraction) = move_group.compute_cartesian_path(
                                    waypoints,   # waypoints to follow
-                                   0.1,        # eef_step
+                                   0.01,        # eef_step
                                    5)         # jump_threshold
     move_group.execute(plan, wait=True)
     print(fraction)
@@ -77,7 +77,7 @@ def draw(x,y,z):
 #init(move_group)
 #change_joint_angles(move_group,[0,0,0,0,0,0])
 
-draw(50,0,0)
+draw(30,0,0)
 
 
 
