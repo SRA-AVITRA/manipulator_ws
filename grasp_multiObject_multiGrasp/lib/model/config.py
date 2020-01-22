@@ -244,7 +244,7 @@ __C.EPS = 1e-14
 __C.ROOT_DIR = osp.abspath(osp.join(osp.dirname(__file__), '..', '..'))
 
 # Data directory
-__C.DATA_DIR = osp.abspath('../../../manipulator_ws/src/perception/scripts/')
+__C.DATA_DIR = osp.abspath('/../../realsense_ws/src/realsense-ros/realsense2_camera/scripts')
 
 # Name (or path to) the matlab executable
 __C.MATLAB = 'matlab'

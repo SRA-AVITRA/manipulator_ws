@@ -5,7 +5,7 @@ import rospy
 import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
-from math import pi
+from math import pi, radians
 from std_msgs.msg import String , Float64
 from dynamixel_msgs.msg import JointState
 from moveit_commander.conversions import pose_to_list
@@ -34,17 +34,19 @@ play_off_z = 0.05
 play_off_y = 0.06
 cartesian_off = 0.05
 
-roll, pitch, yaw = 9.0, 0,0
-quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
+
 # 277 428 
-def transform(x,y,z) :
+def transform(x,y,z, roll) :
     out = [0,0,0]
     sum_x, sum_y, sum_z = 0,0,0
     out_x = round((z + bot_x + off_x - cartesian_off), 2)
     out_y = round(-(x - off_y ) + play_off_y, 2) 
     out_z = round(((y - off_z) + bot_z + play_off_z), 2) 
+    print(roll)
+    pitch, yaw = 0,0
+    quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
 
-    return out_x, out_y, out_z
+    return out_x, out_y, out_z, quat 
     
 count = 0
         
@@ -53,13 +55,14 @@ def callback_xy(data):
     global count
     if count == 0:
         pose_goal = geometry_msgs.msg.Pose()
+        
+        print(data.array[3])
+        pose_goal.position.x, pose_goal.position.y, pose_goal.position.z, quat  =  transform(data.array[0], data.array[1], data.array[2], radians(data.array[3]))
+# [-0.042422794, 0.11115891, 0.39400002]
         pose_goal.orientation.w = quat[3]
         pose_goal.orientation.x = quat[0]
         pose_goal.orientation.y = quat[1]
         pose_goal.orientation.z = quat[2]
-
-        pose_goal.position.x, pose_goal.position.y, pose_goal.position.z =  transform(data.array[0], data.array[1], data.array[2])
-# [-0.042422794, 0.11115891, 0.39400002]
         rospy.loginfo("DATA: %s",pose_goal.position)
         group.set_pose_target(pose_goal)
 

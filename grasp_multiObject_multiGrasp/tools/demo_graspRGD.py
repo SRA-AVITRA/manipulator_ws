@@ -46,7 +46,7 @@ CLASSES = ('__background__',
 
 NETS = {'vgg16': ('vgg16_faster_rcnn_iter_70000.ckpt',),'res101': ('res101_faster_rcnn_iter_110000.ckpt',),'res50': ('res50_faster_rcnn_iter_240000.ckpt',)}
 DATASETS= {'pascal_voc': ('voc_2007_trainval',),'pascal_voc_0712': ('voc_2007_trainval+voc_2012_trainval',),'grasp': ('train',)}
-f = open('/home/avitra/manipulator_ws/src/perception/scripts/points.txt','w')
+f = open('points.txt','w')
 def Rotate2D(pts,cnt,ang=scipy.pi/4):
     '''pts = {} Rotates points(nx2) about center cnt(2) by angle ang(1) in radian'''
     return dot(pts-cnt,ar([[cos(ang),sin(ang)],[-sin(ang),cos(ang)]]))+cnt
@@ -104,6 +104,11 @@ def vis_detections(ax, image_name, im, class_name, dets, thresh=0.5):
         degree_angle = 90.0
 
 
+    if degree_angle>=0 :
+        degree_angle = 90 - degree_angle
+    else :
+        degree_angle = -1*(90-math.abs(degree_angle))
+
 
     x_co = []
     y_co = []
@@ -119,9 +124,11 @@ def vis_detections(ax, image_name, im, class_name, dets, thresh=0.5):
     print(im.shape)
 
     f.write('')
-    print(int(cx),int(cy), im[int(cy),int(cx),2])
+    print(int(cx),int(cy),degree_angle)
+
 
     f.write('\n')
+    f.close()
     done = True
         #ax.text(bbox[0], bbox[1] - 2,
         #        '{:s} {:.3f}'.format(class_name, score),
@@ -167,7 +174,7 @@ def demo(sess, net, image_name):
 
     fig, ax = plt.subplots(figsize=(12, 12))
     # Visualize detections for each class
-    CONF_THRESH = 0.1
+    CONF_THRESH = 0.05
     NMS_THRESH = 0.3
     for cls_ind, cls in enumerate(CLASSES[1:]):
         cls_ind += 1 # because we skipped background

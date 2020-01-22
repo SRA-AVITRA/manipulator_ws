@@ -29,7 +29,6 @@ def on_new_centroid_array(data):
         x = array[centroid_array[1],centroid_array[0]][0]
         y = -array[centroid_array[1],centroid_array[0]][1]
         z = array[centroid_array[1],centroid_array[0]][2]
-
         if not (math.isnan(x) or math.isnan(y) or math.isnan(z)):
             t_x +=x
             t_y +=y
