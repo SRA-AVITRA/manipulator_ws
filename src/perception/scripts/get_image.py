@@ -67,6 +67,7 @@ def image_callback(ros_rgb, ros_depth):
     color[:,:,0] = depth
     print("writing")
     cv2.imwrite(os.getenv("HOME")+'/manipulator_ws/temp/rgd'+path+'.png',color)
+    rospy.signal_shutdown("Closing node")
     
 def parse_args():
     """Parse input arguments."""
@@ -80,7 +81,7 @@ if __name__ == '__main__':
     args = parse_args()
     path = args.path
     print path
-    rospy.init_node('rgb')
+    rospy.init_node('rgb',anonymous=True, disable_signals=True)
 
     rgb_sub = message_filters.Subscriber('/camera/color/image_rect_color', Image)
     depth_sub = message_filters.Subscriber('/camera/aligned_depth_to_color/image_raw', Image)

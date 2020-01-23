@@ -116,15 +116,16 @@ def vis_detections(ax, image_name, im, class_name, dets, thresh=0.5):
         x_co.append(i)
     for i in pred_y:
         y_co.append(i)
-    f = open('points.txt','w')
-    f.write(str(cx))
-    f.write(', ')
-    f.write(str(cy))
-    f.write(', ')
+
+    f = open(os.getenv("HOME")+'/manipulator_ws/temp/points.txt','w')
+    f.write(str(int(cx)))
+    f.write('\n')
+    f.write(str(int(cy)))
+    f.write('\n')
     f.write(str(degree_angle))
     print(im.shape)
 
-    f.write('')
+    f.write('\n')
     print(int(cx),int(cy),degree_angle)
 
 

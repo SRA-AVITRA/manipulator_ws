@@ -21,8 +21,20 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  message_generation
 )
 find_package(Boost REQUIRED system filesystem date_time thread)
+
+##Generate services in the 'srv' folder
+add_service_files(
+FILES
+c_g.srv
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 set(THIS_PACKAGE_INCLUDE_DIRS
   /opt/ros/kinetic/include/moveit/robot_model

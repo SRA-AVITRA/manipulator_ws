@@ -237,14 +237,14 @@ __C.PIXEL_MEANS = np.array([[[102.9801, 115.9465, 122.7717]]])
 # For reproducibility
 __C.RNG_SEED = 3
 
-# A small number that's used many times
+# A small number that's used many times 
 __C.EPS = 1e-14
 
 # Root directory of project
 __C.ROOT_DIR = osp.abspath(osp.join(osp.dirname(__file__), '..', '..'))
 
 # Data directory
-__C.DATA_DIR = osp.abspath('../../realsense_ws/src/realsense-ros/realsense2_camera/scripts')
+__C.DATA_DIR = osp.abspath(os.getenv("HOME")+'/manipulator_ws/temp')
 
 # Name (or path to) the matlab executable
 __C.MATLAB = 'matlab'

@@ -6,3 +6,4 @@ logs/*
 install/*
 grasp_multiObject_multiGrasp/output/*
 src/perception/scripts/*png
+temp/*

@@ -8,20 +8,28 @@ import numpy as np
 from perception.msg import array,array_float
 import math
 import cv2
+import os
 
 t_x,t_y,t_z = 0,0,0
 counter = 0 
 
+f = open(os.getenv("HOME")+'/manipulator_ws/temp/points.txt','r')
+s = f.read()
+cx,_,s = s.partition("\n")
+cy,_,s = s.partition("\n")
+ctheta,_,s = s.partition("\n")
+f.close()
 def on_new_point_cloud(data):
-    print("here")
-    global array
+    global array, cx, cy, ctheta
+    cx, cy, ctheta = int(cx), int(cy), float(ctheta)
+
     array = ros_numpy.point_cloud2.pointcloud2_to_array(data,squeeze = True)
 # 278 397 9.0
 # 388 443 90.0
-    x = array[443, 388][0]
-    y = -array[443, 388][1]
-    z = array[443, 388][2]
-    theta = 90
+    x = array[cy, cx][0]
+    y = -array[cy, cx][1]
+    z = array[cy, cx][2]
+    theta = ctheta
    
     arr = [x,y,z,theta]
     print(arr)        

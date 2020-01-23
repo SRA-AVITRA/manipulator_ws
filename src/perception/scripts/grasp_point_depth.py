@@ -11,6 +11,8 @@ from perception.msg import array,array_float
 # cy = input('y: ')
 # 207 262
 
+
+
 cx = 251
 cy = 416
 
