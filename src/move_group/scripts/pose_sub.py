@@ -34,7 +34,7 @@ play_off_z = 0.05
 play_off_y = 0.06
 cartesian_off = 0.05
 
-roll, pitch, yaw = 9.0, 0,0
+roll, pitch, yaw = 0, 0,0
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
 # 277 428 
 def transform(x,y,z) :

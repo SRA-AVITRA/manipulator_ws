@@ -88,7 +88,7 @@ def image_callback(ros_image):
 	print(arr)
 	centroid_pub.publish(arr)
 	img = cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
-	cv2.imshow(node_name, frame)
+	# cv2.imshow(node_name, frame)
 	# pc2_pub.publish(pts_pc2)
 	centroid_pub.publish(arr)
 	if cv2.waitKey(10) == ord('x'):

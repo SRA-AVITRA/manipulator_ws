@@ -13,7 +13,7 @@ import tf
 from perception.msg import array_float, array
 
 moveit_commander.roscpp_initialize(sys.argv)
-rospy.init_node('pose_goal',anonymous=True)
+rospy.init_node('pose_goal',anonymous=True, disable_signals=True)
 
 robot = moveit_commander.RobotCommander()
 
@@ -32,7 +32,7 @@ off_z = 0.079
 off_x = 0.19
 play_off_z = 0.05
 play_off_y = 0.06
-cartesian_off = 0.05
+cartesian_off = 0.1
 
 
 # 277 428 
@@ -77,6 +77,8 @@ def callback_xy(data):
         group.clear_pose_targets()
 
         count+=1
+    rospy.signal_shutdown("Closing node")
+
 
 if __name__ == "__main__":
     rospy.Subscriber("/position",array_float,callback_xy)

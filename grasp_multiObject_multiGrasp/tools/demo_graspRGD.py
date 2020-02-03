@@ -164,7 +164,7 @@ def demo(sess, net, image_name):
     scores, boxes = im_detect(sess, net, im)
     print(len(scores),'scorrrrre')
     #if single grasp of max prob reqd. then set single = True
-    single= False
+    single= True
     if single:
         scores_max = scores[:,1:-1].max(axis=1)
         scores_max_idx = np.argmax(scores_max)
@@ -176,7 +176,7 @@ def demo(sess, net, image_name):
 
     fig, ax = plt.subplots(figsize=(12, 12))
     # Visualize detections for each class
-    CONF_THRESH = 0.2
+    CONF_THRESH = 0.01
     NMS_THRESH = 0.3
     for cls_ind, cls in enumerate(CLASSES[1:]):
         cls_ind += 1 # because we skipped background
