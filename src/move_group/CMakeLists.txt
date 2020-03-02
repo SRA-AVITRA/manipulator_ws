@@ -94,3 +94,9 @@ add_executable(pose_sub src/pose_sub.cpp)
 target_link_libraries(pose_sub ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 add_dependencies(pose_sub move_group_generate_messages_cpp)
 add_dependencies(pose_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+add_executable(cartesian src/cartesian.cpp)
+target_link_libraries(cartesian ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+add_executable(home src/home.cpp)
+target_link_libraries(home ${catkin_LIBRARIES} ${Boost_LIBRARIES})
