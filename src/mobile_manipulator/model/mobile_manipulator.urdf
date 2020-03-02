@@ -66,19 +66,19 @@
   </link>
   <link name="shoulder_yaw_motor">
     <inertial>
-      <origin rpy="0 0 0 " xyz="0.13 -0.02 0.1715"/>
+      <origin rpy="0 0 0 " xyz="0.05 -0.02 0.1715"/>
       <mass value="0.140"/>
       <inertia ixx="0.000050799110" ixy="0.0" ixz="0.0" iyy="0.00002857215" iyz="0.00000051457" izz="0.000043394"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0 " xyz="0.13 -0.02 0.1715"/>
+      <origin rpy="0 0 0 " xyz="0.05 -0.02 0.1715"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/base_motor.STL" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.13 -0.02 0.1715"/>
+      <origin rpy="0 0 0" xyz="0.05 -0.02 0.1715"/>
       <geometry>
         <mesh filename="package://mobile_manipulator/meshes/base_motor.STL" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -230,14 +230,14 @@
     <child link="shoulder_yaw_motor"/>
   </joint>
   <joint name="shoulder_yaw" type="revolute">
-    <origin rpy="0 0 0" xyz="0.1765 -0.003 0.26"/>
+    <origin rpy="0 0 0" xyz="0.0965 -0.003 0.26"/>
     <parent link="shoulder_yaw_motor"/>
     <child link="shoulder_bracket"/>
     <axis xyz="0 0 1"/>
     <limit effort="30" lower="-3.14" upper="3.14" velocity="1.0"/>
   </joint>
   <joint name="shoulder_pitch" type="revolute">
-    <origin rpy="0 0 0.0" xyz="0 0.010 0.040"/>
+    <origin rpy="0 0 0.0" xyz="0.0 0.010 0.040"/>
     <parent link="shoulder_bracket"/>
     <child link="shoulder_pitch_motor"/>
     <axis xyz="0 1 0"/>
@@ -276,5 +276,12 @@
     <parent link="wrist_roll_motor"/>
     <child link="end_effector_link"/>
   </joint>
+  <!--   <xacro:Revjoint id="shoulder_pitch" trans="0 0.010 0.040" rpy="0 0 0.0" parent="shoulder_bracket" child="shoulder_pitch_motor" axis="0 1 0" l="-1.59" u="1.97423327401" v="1.0"/>
+  <xacro:Revjoint id="elbow" trans="${0.052 + (length) - 0.150} 0 0.2" rpy="0 0 0" parent="shoulder_pitch_motor" child="elbow_motor" axis="0 1 0" l="-1.9880391011" u="1.97730123558" v="1.0"/>
+  
+  <xacro:Revjoint id="wrist_yaw" trans=" 0.015 -0.005 0.278" rpy="0 0 0" parent="elbow_motor" child="wrist_yaw_motor" axis="0 0 1" l="-2.617" u="2.617" v="1.0"/>
+  <xacro:Revjoint id="wrist_pitch" trans="0 0 0" rpy="0 0 0" parent="wrist_yaw_motor" child="wrist_pitch_motor" axis="0 1 0" l="-2.617" u="0.99" v="1.0"/> 
+  <xacro:Revjoint id="wrist_roll" trans="0 0 0" rpy="0 0 0" parent="wrist_pitch_motor" child="wrist_roll_motor" axis="1 0 0" l="-2.617" u="2.617" v="1.0"/> 
+  <xacro:FxdJoint id="end_eff_joint" trans="0.20 0 0.02" rpy="0 0 0" parent="wrist_roll_motor" child="end_effector_link"/> -->
 </robot>
 
