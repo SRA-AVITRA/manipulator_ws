@@ -22,6 +22,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+  
 )
 find_package(Boost REQUIRED system filesystem date_time thread)
 
@@ -30,6 +31,13 @@ add_service_files(
 FILES
 c_g.srv
 )
+
+## Generate messages in the 'msg' folder
+ add_message_files(
+   FILES
+   array.msg
+   array_float.msg
+ )
 
 generate_messages(
   DEPENDENCIES
@@ -51,6 +59,8 @@ catkin_package(
     moveit_visual_tools
     moveit_ros_planning_interface
     interactive_markers
+    std_msgs
+    message_runtime
   DEPENDS
     EIGEN3
 )
@@ -79,3 +89,8 @@ target_link_libraries(attach_detach_object ${catkin_LIBRARIES} ${Boost_LIBRARIES
 
 add_executable(check_collision src/check_collision.cpp)
 target_link_libraries(check_collision ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+add_executable(pose_sub src/pose_sub.cpp)
+target_link_libraries(pose_sub ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+add_dependencies(pose_sub move_group_generate_messages_cpp)
+add_dependencies(pose_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

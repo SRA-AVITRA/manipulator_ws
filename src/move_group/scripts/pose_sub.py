@@ -24,12 +24,12 @@ group = moveit_commander.MoveGroupCommander(group_name)
 group.set_goal_tolerance(0.0005)
 display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',moveit_msgs.msg.DisplayTrajectory,queue_size=20)
 
-bot_x = 0.18
+bot_x = 0.12 #0.18
 bot_y = 0
 bot_z = 0.31 #0.28 
 off_y = 0 #0.46
 off_z = 0.079
-off_x = 0.19
+off_x = 0.12 #0.18
 play_off_z = 0.05
 play_off_y = 0.06
 cartesian_off = 0.05

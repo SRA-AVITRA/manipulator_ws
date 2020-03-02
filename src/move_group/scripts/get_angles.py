@@ -17,7 +17,7 @@ def callback(msg):
 	# r = rospy.Rate(10) # 10hz
 	# while not rospy.is_shutdown():
     		# pub.publish(position_array)
-    		# r.sleep()
+    		# r.sleep()      
 	pub.publish(position_array)
 	print(position_array.data)
 

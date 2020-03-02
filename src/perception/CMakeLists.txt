@@ -12,6 +12,10 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+  sensor_msgs
+  cv_bridge
+  image_transport
+  image_geometry
 )
 
 ## System dependencies are found with CMake's conventions
@@ -128,6 +132,7 @@ include_directories(
 #   src/${PROJECT_NAME}/depth_calc.cpp
 # )
 
+
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
@@ -137,6 +142,30 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/depth_calc_node.cpp)
+
+find_package(OpenCV REQUIRED) ##I also tried it without REQUIRED
+
+catkin_package(
+  # INCLUDE_DIRS include
+#  LIBRARIES kinect_vision
+  CATKIN_DEPENDS cv_bridge image_transport image_geometry roscpp
+  DEPENDS OpenCV
+)
+
+include_directories(
+  ${catkin_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS}
+)
+
+
+ add_executable(display_node src/display_node.cpp)
+
+
+ target_link_libraries(display_node
+   ${OpenCV_LIBRARIES} ${catkin_LIBRARIES}
+ )
+
+# add_executable(display_node src/display_node.cpp)
+# target_link_libraries(display_node ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
