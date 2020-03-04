@@ -16,7 +16,7 @@ import numpy as np
 max_load = 0.125 #0.0624
 current_load = 0.0
 open_angle = -0.015 #-2.0
-close_angle = -1.0
+close_angle = -1.4
 angle = 0
 
 # def State_cb(data):

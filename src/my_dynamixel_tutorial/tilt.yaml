@@ -88,5 +88,5 @@ gripper_controller:
     motor:
         id: 7
         init: 1024
-        min: 810
+        min: 500
         max: 1024
