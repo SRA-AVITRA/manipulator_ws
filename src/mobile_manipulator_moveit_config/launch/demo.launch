@@ -25,6 +25,7 @@
 
   <!-- If needed, broadcast static tf for robot root -->
   
+  <node pkg ="tf" type ="static_transform_publisher" name ="camera_link_tf_broadcaster" args ="0.3 0.0 0.28 0 0 0 bot camera_link 100" /> 
 
   <!-- We do not have a robot connected, so publish fake joint states -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
@@ -44,6 +45,7 @@
     <arg name="info" value="true"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>
+ 
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
   <include file="$(find mobile_manipulator_moveit_config)/launch/moveit_rviz.launch">

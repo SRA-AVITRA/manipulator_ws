@@ -332,9 +332,9 @@
   </link>
  
   <link name="shoulder_yaw_motor">
-    <xacro:shoulder_yaw_inertial trans="0.13 -0.02 0.1715" rpy="0 0 0 "/>  
-    <xacro:shoulder_yaw_visual trans="0.13 -0.02 0.1715" rpy="0 0 0 "/>
-    <xacro:shoulder_yaw_collision trans="0.13 -0.02 0.1715" rpy="0 0 0"/>
+    <xacro:shoulder_yaw_inertial trans="0.05 -0.02 0.1715" rpy="0 0 0 "/>  <!--0.13-->
+    <xacro:shoulder_yaw_visual trans="0.05 -0.02 0.1715" rpy="0 0 0 "/>
+    <xacro:shoulder_yaw_collision trans="0.05 -0.02 0.1715" rpy="0 0 0"/>
   </link>
 
   <link name="shoulder_bracket">
@@ -385,7 +385,7 @@
 
  <!-- JOINTS -->
    <xacro:FxdJoint id="bot_joint" trans="0 0 0" rpy="0 0 0" parent="bot" child="shoulder_yaw_motor"/>
-  <xacro:Revjoint id="shoulder_yaw" trans="0.1765 -0.003 0.26" rpy="0 0 0" parent="shoulder_yaw_motor" child="shoulder_bracket" axis="0 0 1" l="-3.14" u="3.14" v="1.0"/>
+  <xacro:Revjoint id="shoulder_yaw" trans="0.0965 -0.003 0.26" rpy="0 0 0" parent="shoulder_yaw_motor" child="shoulder_bracket" axis="0 0 1" l="-3.14" u="3.14" v="1.0"/>
   <xacro:Revjoint id="shoulder_pitch" trans="0.0 0.010 0.040" rpy="0 0 0.0" parent="shoulder_bracket" child="shoulder_pitch_motor" axis="0 1 0" l="-1.59" u="1.97423327401" v="1.0"/>
   <xacro:Revjoint id="elbow" trans="${0.052 + (length) - 0.150} 0 0.2" rpy="0 0 0" parent="shoulder_pitch_motor" child="elbow_motor" axis="0 1 0" l="-1.9880391011" u="1.97730123558" v="1.0"/>  
   <xacro:Revjoint id="wrist_yaw" trans=" 0.015 -0.005 0.278" rpy="0 0 0" parent="elbow_motor" child="wrist_yaw_motor" axis="0 0 1" l="-2.617" u="2.617" v="1.0"/>
@@ -395,4 +395,4 @@
 
 </robot>
 
-<!-- 0.0965 -->
+<!-- 0.1765 -->
