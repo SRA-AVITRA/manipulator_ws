@@ -77,7 +77,7 @@ def draw(x,y,z):
 #init(move_group)
 #change_joint_angles(move_group,[0,0,0,0,0,0])
 
-draw(30,0,0)
+draw(15,0,0)
 
 
 
