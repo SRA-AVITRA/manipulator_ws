@@ -30,9 +30,9 @@ bot_z = 0.31 #0.28
 off_y = 0 #0.46 //Camera centre to manipulator centre
 off_z = 0.19
 off_x = 0.19 #0.12
-play_off_z = 0.05#5
-play_off_y = 0.06#6
-cartesian_off = 0.05
+play_off_z = 0.05 #5
+play_off_y = 0.06 #6
+cartesian_off = 0.07
 
 roll, pitch, yaw = 0, 0,0
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
