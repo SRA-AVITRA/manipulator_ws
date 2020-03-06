@@ -12,7 +12,7 @@
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
 ///
-/// ikfast version 0x10000049 generated on 2020-01-14 15:07:00.976484
+/// ikfast version 0x10000049 generated on 2020-03-06 12:49:06.662234
 /// To compile with gcc:
 ///     gcc -lstdc++ ik.cpp
 /// To compile without any main function as a shared object (might need -llapack):
@@ -365,7 +365,7 @@ eerot[1]=(((x10*(((((-1.0)*x40))+x55))))+((x11*x60)));
 eerot[2]=(((x10*x60))+((x11*(((((-1.0)*x16*x49))+x40)))));
 IkReal x62=((1.0)*x30);
 IkReal x63=((1.0)*x0);
-eetrans[0]=((0.1765)+(((0.2)*x30))+((x10*(((((-1.0)*x21*x57))+(((-1.0)*x17*x51))))))+(((-1.0)*x24*x62))+(((0.278)*x0*x36))+(((-0.005)*x7))+((x9*(((((-1.0)*x13*x62))+(((-1.0)*x15*x2*x63))))))+((x22*x30))+(((-1.0)*x29*x63))+((x11*(((((-1.0)*x25*x49))+((x12*x7))))))+(((0.015)*x0*x37))+((x8*((((x20*x47))+(((-0.2)*x5*x7)))))));
+eetrans[0]=((0.0965)+(((0.2)*x30))+((x10*(((((-1.0)*x21*x57))+(((-1.0)*x17*x51))))))+(((-1.0)*x24*x62))+(((0.278)*x0*x36))+(((-0.005)*x7))+((x9*(((((-1.0)*x13*x62))+(((-1.0)*x15*x2*x63))))))+((x22*x30))+(((-1.0)*x29*x63))+((x11*(((((-1.0)*x25*x49))+((x12*x7))))))+(((0.015)*x0*x37))+((x8*((((x20*x47))+(((-0.2)*x5*x7)))))));
 eerot[3]=(((x8*((x38+x54))))+((x52*x9)));
 eerot[4]=(((x11*x61))+((x10*((((x0*x6))+((x5*x50)))))));
 eerot[5]=(((x11*(((((-1.0)*x16*x50))+(((-1.0)*x26*x6))))))+((x10*x61)));
@@ -412,7 +412,7 @@ px = eetrans[0]; py = eetrans[1]; pz = eetrans[2];
 new_r00=((-1.0)*r02);
 new_r01=r01;
 new_r02=r00;
-new_px=((-0.1765)+(((-0.02)*r02))+(((-0.2)*r00))+px);
+new_px=((-0.0965)+(((-0.02)*r02))+(((-0.2)*r00))+px);
 new_r10=((-1.0)*r12);
 new_r11=r11;
 new_r12=r10;
@@ -11102,7 +11102,7 @@ IKSolver solver;
 return solver.ComputeIk(eetrans,eerot,pfree,solutions);
 }
 
-IKFAST_API const char* GetKinematicsHash() { return "<robot:GenericRobot - mobile_manipulator (847a16e4ddcc188aa085f0b4daa02477)>"; }
+IKFAST_API const char* GetKinematicsHash() { return "<robot:GenericRobot - mobile_manipulator (c86d0a1ab64be443c90cbc5c44588e9e)>"; }
 
 IKFAST_API const char* GetIkFastVersion() { return "0x10000049"; }
 

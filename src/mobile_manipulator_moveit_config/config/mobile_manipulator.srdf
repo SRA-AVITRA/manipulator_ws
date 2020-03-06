@@ -36,19 +36,19 @@
         <joint name="wrist_roll" value="0" />
         <joint name="wrist_yaw" value="0" />
     </group_state>
-    <group_state name="place" group="arm">
+    <group_state name="place1" group="arm">
         <joint name="elbow" value="1.57" />
-        <joint name="shoulder_pitch" value="0" />
+        <joint name="shoulder_pitch" value="-0.785" />
         <joint name="shoulder_yaw" value="1.57" />
-        <joint name="wrist_pitch" value="0" />
+        <joint name="wrist_pitch" value="-0.785" />
         <joint name="wrist_roll" value="0" />
         <joint name="wrist_yaw" value="0" />
     </group_state>
-    <group_state name="stable" group="arm">
-        <joint name="elbow" value="1.57" />
-        <joint name="shoulder_pitch" value="-0.785" />
-        <joint name="shoulder_yaw" value="0" />
-        <joint name="wrist_pitch" value="0" />
+    <group_state name="place2" group="arm">
+        <joint name="elbow" value="0.785" />
+        <joint name="shoulder_pitch" value="0.785" />
+        <joint name="shoulder_yaw" value="1.57" />
+        <joint name="wrist_pitch" value="-1.57" />
         <joint name="wrist_roll" value="0" />
         <joint name="wrist_yaw" value="0" />
     </group_state>
@@ -65,6 +65,7 @@
     <disable_collisions link1="elbow_motor" link2="shoulder_yaw_motor" reason="Never" />
     <disable_collisions link1="elbow_motor" link2="wrist_pitch_motor" reason="Never" />
     <disable_collisions link1="elbow_motor" link2="wrist_yaw_motor" reason="Adjacent" />
+    <disable_collisions link1="end_effector_link" link2="shoulder_bracket" reason="Never" />
     <disable_collisions link1="end_effector_link" link2="shoulder_pitch_motor" reason="Never" />
     <disable_collisions link1="end_effector_link" link2="shoulder_yaw_motor" reason="Never" />
     <disable_collisions link1="end_effector_link" link2="wrist_pitch_motor" reason="Never" />
