@@ -25,12 +25,12 @@ def image_callback(ros_image):
 	bridge = CvBridge()
 	kernel = np.ones((2,2),np.uint8)
 	#Pink
-	#lower = np.array([ 155.,   40.,  100.])
-	#upper = np.array([ 170.,  250.,  250.])
+	lower = np.array([ 155.,   40.,  100.])
+	upper = np.array([ 170.,  250.,  250.])
 	
 	# RED
-	lower = np.array([ 165.,   100.,  100.])
-	upper = np.array([ 185., 220., 210.])
+	# lower = np.array([ 165.,   100.,  100.])
+	# upper = np.array([ 185., 220., 210.])
 
 	try:
 		frame = bridge.imgmsg_to_cv2(ros_image, "bgr8")
@@ -87,8 +87,8 @@ def image_callback(ros_image):
 	arr = [c_x,c_y]
 	print(arr)
 	centroid_pub.publish(arr)
-	#img = cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
-	#cv2.imshow(node_name, frame)
+	img = cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
+	cv2.imshow(node_name, frame)
 	# pc2_pub.publish(pts_pc2)
 	centroid_pub.publish(arr)
 	if cv2.waitKey(10) == ord('x'):

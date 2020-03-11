@@ -8,9 +8,17 @@ import numpy as np
 from perception.msg import array,array_float
 import math
 import cv2
+from geometry_msgs.msg import PointStamped
+import tf
+import tf2_ros
 
 t_x,t_y,t_z = 0,0,0
 counter = 0 
+
+obj = PointStamped()
+obj.header.frame_id = "camera_link"
+obj.header.stamp =rospy.Time(0)
+
 
 def on_new_point_cloud(data):
     global array
@@ -25,10 +33,13 @@ def on_new_centroid_array(data):
         # y = array[centroid_array[1],centroid_array[0]][1] 
         # z = array[centroid_array[1],centroid_array[0]][2]
 
+
+
         #Robot axis reconfiguration
         x = array[centroid_array[1],centroid_array[0]][0]
         y = -array[centroid_array[1],centroid_array[0]][1]
         z = array[centroid_array[1],centroid_array[0]][2]
+
         if not (math.isnan(x) or math.isnan(y) or math.isnan(z)):
             t_x +=x
             t_y +=y
@@ -39,8 +50,13 @@ def on_new_centroid_array(data):
             t_y/=10
             t_z/=10
             arr = [t_x,t_y,t_z]
-            counter = 0    
+            counter = 0
+            obj.point.x = t_z
+            obj.point.y = -t_x
+            obj.point.z = t_y
+            transformed_obj = listener.transformPoint("bot", obj)    
             pub.publish(arr)
+            point_pub.publish(transformed_obj)
             print("XYZ:",arr)
         if cv2.waitKey(10) == ord('x'):
             cv2.destroyAllWindows()
@@ -58,4 +74,12 @@ def listener():
 if __name__ == '__main__':
    listener()
    pub = rospy.Publisher("position", array_float, queue_size = 10)
-   rospy.spin()
+   point_pub = rospy.Publisher("object", PointStamped, queue_size = 1)
+   cam_broadcaster = tf.TransformBroadcaster()
+   listener = tf.TransformListener()
+   # rospy.spin()
+   while not rospy.is_shutdown():
+        try:
+            cam_broadcaster.sendTransform((0.2, 0, 0.25), (0, 0, 0, 1), rospy.Time.now(), "camera_link", "bot")
+        except:
+            break
