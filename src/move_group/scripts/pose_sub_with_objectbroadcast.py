@@ -58,9 +58,9 @@ def callback_xy(data):
         pose_goal.orientation.y = quat[1]
         pose_goal.orientation.z = quat[2]
 
-        pose_goal.position.x = data.point.x
-        pose_goal.position.y = data.point.y
-        pose_goal.position.z = data.point.z
+        pose_goal.position.x = round(data.point.x,2)
+        pose_goal.position.y = round(data.point.y,2)
+        pose_goal.position.z = round(data.point.z,2)
         
         # pose_goal.position.x, pose_goal.position.y, pose_goal.position.z =  transform(data.array[0], data.array[1], data.array[2])
 # [-0.042422794, 0.11115891, 0.39400002]

@@ -80,6 +80,6 @@ if __name__ == '__main__':
    # rospy.spin()
    while not rospy.is_shutdown():
         try:
-            cam_broadcaster.sendTransform((0.2, 0, 0.25), (0, 0, 0, 1), rospy.Time.now(), "camera_link", "bot")
+            cam_broadcaster.sendTransform((0.2, 0, 0.125), (0, 0, 0, 1), rospy.Time.now(), "camera_link", "bot")
         except:
             break
