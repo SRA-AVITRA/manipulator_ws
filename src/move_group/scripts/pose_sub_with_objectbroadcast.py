@@ -33,10 +33,10 @@ bot_z = 0.308 #0.28
 off_y = 0 #0.46 //Camera centre to manipulator centre
 off_z = 0.194
 off_x = 0.104 #0.19
-play_off_z = 0.1 #0.05 #5
-play_off_y = 0.09 #0.06 #6
-play_off_x = 0.08
-cartesian_off = 0.0 # 0.05
+play_off_z = 0.05 #0.05 #5
+play_off_y = 0.06 #0.06 #6
+play_off_x = 0.06
+cartesian_off = 0.05 # 0.05
         
 # def camera_coordinates(cam_array):
 #     global obj_odom
@@ -58,9 +58,9 @@ def callback_xy(data):
         pose_goal.orientation.y = quat[1]
         pose_goal.orientation.z = quat[2]
 
-        pose_goal.position.x = round(data.point.x,2)
-        pose_goal.position.y = round(data.point.y,2)
-        pose_goal.position.z = round(data.point.z,2)
+        pose_goal.position.x = round(data.point.x - cartesian_off ,2)
+        pose_goal.position.y = round(data.point.y + play_off_y ,2)
+        pose_goal.position.z = round(data.point.z + play_off_z ,2)
         
         # pose_goal.position.x, pose_goal.position.y, pose_goal.position.z =  transform(data.array[0], data.array[1], data.array[2])
 # [-0.042422794, 0.11115891, 0.39400002]
