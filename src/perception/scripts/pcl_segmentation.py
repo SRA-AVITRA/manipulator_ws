@@ -13,8 +13,15 @@ import struct
 
 def ros_to_pcl(ros_cloud):
     """ Converts a ROS PointCloud2 message to a pcl PointXYZRGB
+<<<<<<< HEAD
         Args:
             ros_cloud (PointCloud2): ROS PointCloud2 message
+=======
+
+        Args:
+            ros_cloud (PointCloud2): ROS PointCloud2 message
+
+>>>>>>> 3dfb88506c7015ee768fe3a04c275b62187dbae0
         Returns:
             pcl.PointCloud_PointXYZRGB: PCL XYZRGB point cloud
     """
@@ -30,8 +37,15 @@ def ros_to_pcl(ros_cloud):
 
 def pcl_to_ros(pcl_array):
     """ Converts a pcl PointXYZRGB to a ROS PointCloud2 message
+<<<<<<< HEAD
         Args:
             pcl_array (PointCloud_PointXYZRGB): A PCL XYZRGB point cloud
+=======
+
+        Args:
+            pcl_array (PointCloud_PointXYZRGB): A PCL XYZRGB point cloud
+
+>>>>>>> 3dfb88506c7015ee768fe3a04c275b62187dbae0
         Returns:
             PointCloud2: A ROS point cloud
     """
@@ -101,7 +115,10 @@ def callback(data):
     pcl.save(cloud_filtered, filename)
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3dfb88506c7015ee768fe3a04c275b62187dbae0
     ### PassThrough filter
     # Create a PassThrough filter object.
     passthrough = cloud_filtered.make_passthrough_filter()
@@ -115,6 +132,7 @@ def callback(data):
 
     # Finally use the filter function to obtain the resultant point cloud.
     cloud_filtered = passthrough.filter()
+<<<<<<< HEAD
     filename = 'pass_through_filtered.pcd'
     pcl.save(cloud_filtered, filename)
 
@@ -178,8 +196,73 @@ def callback(data):
     
    
     # pub.publish(ros_cloud)
+=======
+    # filename = 'pass_through_filtered.pcd'
+    # pcl.save(cloud_filtered, filename)
+
+    # print(cloud_filtered)
+    # ### RANSAC plane segmentation
+    # # Create the segmentation object
+    # seg = cloud_filtered.make_segmenter()
+
+    # # Set the model you wish to fit
+    # seg.set_model_type(pcl.SACMODEL_PLANE)
+    # seg.set_method_type(pcl.SAC_RANSAC)
+
+    # # Max distance for a point to be considered fitting the model
+    # # Experiment with different values for max_distance
+    # # for segmenting the table
+    # max_distance = 0.01
+    # seg.set_distance_threshold(max_distance)
+
+    # # Call the segment function to obtain set of inlier indices and model coefficients
+    # inliers, coefficients = seg.segment()
+
+
+    # ### Extract inliers
+    # extracted_inliers = cloud_filtered.extract(inliers, negative=False)
+    # filename = 'extracted_inliers.pcd'
+    # pcl.save(extracted_inliers, filename)
+    # # This will give us just the table
+
+
+    # ### Extract outliers
+    # extracted_outliers = cloud_filtered.extract(inliers, negative=True)
+    # filename = 'extracted_outliers.pcd'
+    # pcl.save(extracted_outliers, filename)
+    # # This will give us just the objects
+
+
+    # ### Statistical Outlier Removal Filter
+    # # Not necessary for our test object, but will be used later on...
+
+    # # Much like the previous filters, we start by creating a filter object:
+    # outlier_filter = cloud_filtered.make_statistical_outlier_filter()
+
+    # # Set the number of neighboring points to analyze for any given point
+    # outlier_filter.set_mean_k(50)
+
+    # # Set threshold scale factor
+    # x = 1.0
+
+    # # Any point with a mean distance larger than global (mean distance+x*std_dev) will be considered outlier
+    # outlier_filter.set_std_dev_mul_thresh(x)
+
+    # # Finally call the filter function for magic
+    # cloud_filtered = outlier_filter.filter()
+
+    # print(ros_cloud)
+    ros_cloud = pcl_to_ros(cloud_filtered)
+   
+    pub.publish(ros_cloud)
+>>>>>>> 3dfb88506c7015ee768fe3a04c275b62187dbae0
 
 rospy.init_node('listener', anonymous=True)
 rospy.Subscriber("/camera/depth_registered/points", PointCloud2, callback)
 pub = rospy.Publisher("filterd_cloud", PointCloud2, queue_size = 10)
+<<<<<<< HEAD
 rospy.spin()
+=======
+rospy.spin()
+
+>>>>>>> 3dfb88506c7015ee768fe3a04c275b62187dbae0
