@@ -6,6 +6,7 @@ find_package(Eigen3 REQUIRED)
 
 find_package(catkin REQUIRED COMPONENTS
   interactive_markers
+  message_generation
   moveit_core
   moveit_visual_tools
   moveit_ros_planning
@@ -23,6 +24,16 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 find_package(Boost REQUIRED system filesystem date_time thread)
+
+add_service_files(
+FILES
+c_g.srv
+)
+
+generate_messages(
+DEPENDENCIES
+std_msgs
+)
 
 set(THIS_PACKAGE_INCLUDE_DIRS
   /opt/ros/kinetic/include/moveit/robot_model
@@ -42,6 +53,8 @@ catkin_package(
   DEPENDS
     EIGEN3
 )
+
+
 include_directories(SYSTEM ${THIS_PACKAGE_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} ${EIGEN3_INCLUDE_DIRS})
 include_directories(${catkin_INCLUDE_DIRS})
 link_directories(${catkin_LIBRARY_DIRS})

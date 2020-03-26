@@ -25,12 +25,12 @@ def image_callback(ros_image):
 	bridge = CvBridge()
 	kernel = np.ones((2,2),np.uint8)
 	#Pink
-	# lower = np.array([ 155.,   40.,  100.])
-	# upper = np.array([ 170.,  250.,  250.])
+	lower = np.array([ 155.,   40.,  100.])
+	upper = np.array([ 170.,  250.,  250.])
 	
 	# RED
-	lower = np.array([ 165.,   100.,  100.])
-	upper = np.array([ 185., 220., 210.])
+	# lower = np.array([ 165.,   100.,  100.])
+	# upper = np.array([ 185., 220., 210.])
 
 	try:
 		frame = bridge.imgmsg_to_cv2(ros_image, "bgr8")
