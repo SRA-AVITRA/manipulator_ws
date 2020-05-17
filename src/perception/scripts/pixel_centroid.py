@@ -17,18 +17,19 @@ rospy.init_node(node_name)
 
 rospy.loginfo("Waiting for image topics...")
 
-# lower = np.array([ 110.,   100.,  100.])
-# upper = np.array([ 120.,  220.,  210.])
-# ('[', 158.0, 67.0, 193.0, ']')
+
 
 def image_callback(ros_image):
+
+	# Bridge object for converting between ROS Topic and OpenCV object
 	bridge = CvBridge()
 	kernel = np.ones((2,2),np.uint8)
-	#Pink
+
+	# Select for PINK colour
 #	lower = np.array([ 155.,   40.,  100.])
 #	upper = np.array([ 170.,  250.,  250.])
 	
-	# RED
+	# Select for RED colour 
 	lower = np.array([ 165.,   100.,  100.])
 	upper = np.array([ 185., 220., 210.])
 
@@ -36,23 +37,16 @@ def image_callback(ros_image):
 		frame = bridge.imgmsg_to_cv2(ros_image, "bgr8")
 	except CvBridgeError, e:
 		print e
-#	frame = cv2.flip(frame, 1)
-#    bbox = cv2.selectROI(frame)
-#    obj = hsv[int(bbox[1]):int(bbox[1]+bbox[3]), int(bbox[0]):int(bbox[0]+bbox[2])]
 
-#    h, s, v = np.median(obj[:,:,0]), np.median(obj[:,:,1]), np.median(obj[:,:,2])
-#	lower = np.array([ h-10,   min(0,s-100),  min(0,v-100)])
-#	upper = np.array([ h+10,  max(s+100,255),  max(v+100,255)])
 
-	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-	mask = cv2.inRange(hsv, lower, upper)
-	mask = cv2.bilateralFilter(mask,9,75,75)
-	mask = cv2.dilate(mask,kernel,iterations=1)
+	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)	# Convert Colourspace from BGR to HSV
+	mask = cv2.inRange(hsv, lower, upper)			# Create a mask between the specified range
+	mask = cv2.bilateralFilter(mask,9,75,75)		# Apply a bilateral filter for image filtering without loss of corner information
+	mask = cv2.dilate(mask,kernel,iterations=1)		# dilate expands the necessary pixels
 
-	# cv2.imshow("mask",mask)
-	_, contours, hR = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+	_, contours, hR = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)	# Extract contours from Mask 
 	
-	idx,current_max,counter = 0, 0, 0	
+	idx,current_max,counter = 0, 0, 0		# Find the contour with maximum area
 	for n in contours:
 		a = cv2.contourArea(n)
 		if a>current_max:
@@ -61,10 +55,9 @@ def image_callback(ros_image):
 		counter+=1
 
 
-	# redIndex, redValue = idx, current_max
 	
-	#Visulization
-	cv2.drawContours(frame, contours, idx, (0, 0, 255), 2)
+	
+	cv2.drawContours(frame, contours, idx, (0, 0, 255), 2)	#Visulization
 	
 	#For contour based centroid
 
@@ -85,12 +78,11 @@ def image_callback(ros_image):
 	c_x = (x + w/2)
 	c_y = (y + h/2)
 	arr = [c_x,c_y]
-	print(arr)
-	centroid_pub.publish(arr)
-	img = cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
-	cv2.imshow(node_name, frame)
-	# pc2_pub.publish(pts_pc2)
-	centroid_pub.publish(arr)
+
+	img = cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)	# Draw a rectangle along the bounding box for visualization
+	cv2.imshow(node_name, frame)	# Display the node 
+	centroid_pub.publish(arr)		# Publish the centroid for further processing 
+	
 	if cv2.waitKey(10) == ord('x'):
 		rospy.shutdown()
 		cv2.DestroyAllWindows()

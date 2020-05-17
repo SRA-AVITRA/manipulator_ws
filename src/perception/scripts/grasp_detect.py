@@ -9,57 +9,15 @@ from cv_bridge import CvBridge, CvBridgeError
 import numpy as np 
 import ros_numpy
 import message_filters
-<<<<<<< HEAD
+
 import matplotlib.pyplot as plt
-=======
+
 import argparse
->>>>>>> 93789c858789083e425ce2676e58cdc16219e0ec
-# class Server:
-#     def __init__(self):
-#         self.rgb = None
-#         self.depth = None
 
-#     def rgb_callback(self, ros_image):
-#         bridge = CvBridge()
-#         try:
-# 		frame = bridge.imgmsg_to_cv2(ros_image, "bgr8")
-# 	except CvBridgeError, e:
-# 		print e
-#         self.rgb = frame
-        
+# Helper Script to take BGR and Depth Images abd convert them to RGD Image
 
-#         # Compute stuff.
-#         self.compute_stuff()
 
-#     def depth_callback(self, ros_image):
-#         # "Store" the message received.
-#         bridge = CvBridge()
-# 	try:
-# 		frame = bridge.imgmsg_to_cv2(ros_image, desired_encoding="passthrough")
-# 	except CvBridgeError, e:
-#     		print e 
-#         self.depth = frame
-        
-
-#         # Compute stuff.
-#         self.compute_stuff()
-
-#     def compute_stuff(self):
-#         if self.rgb is not None and self.depth is not None:
-            
-#             cv2.imshow('rgb',self.rgb)
-#             self.rgb[:,:,2] = self.depth
-#             print(type(self.rgb))
-
-<<<<<<< HEAD
-i = 1 
 def image_callback(ros_rgb, ros_depth):
-    a = input('Press enter to continue')
-    global i
-=======
-global path
-def image_callback(ros_rgb, ros_depth):
->>>>>>> 93789c858789083e425ce2676e58cdc16219e0ec
     bridge = CvBridge()
     try:
         rgb = bridge.imgmsg_to_cv2(ros_rgb, "bgr8")
@@ -70,18 +28,7 @@ def image_callback(ros_rgb, ros_depth):
 
     kernel = np.ones((2,2),np.uint8)
 
-<<<<<<< HEAD
-    cv2.imwrite('/home/shambhavi/manipulator_ws/src/perception/scripts/color.png',rgb)
-    cv2.imwrite('/home/shambhavi/manipulator_ws/src/perception/scripts/depth.png',depth)
-    color = cv2.imread('/home/shambhavi/manipulator_ws/src/perception/scripts/color.png')
-    depth = cv2.imread('/home/shambhavi/manipulator_ws/src/perception/scripts/depth.png',0)
-    color[:,:,0] = depth
-    print("writing")
-    cv2.imwrite('/home/shambhavi/manipulator_ws/src/perception/scripts/data/box/rgd'+str(a)+'.png',color)
 
-if __name__ == '__main__':
-    print("writing")
-=======
     cv2.imwrite('/home/avitra/manipulator_ws/src/perception/scripts/color_'+path+'.png',rgb)
     cv2.imwrite('/home/avitra/manipulator_ws/src/perception/scripts/depth_'+path+'.png',depth)
     color = cv2.imread('/home/avitra/manipulator_ws/src/perception/scripts/color_'+path+'.png')
@@ -102,7 +49,6 @@ if __name__ == '__main__':
     args = parse_args()
     path = args.path
     print path
->>>>>>> 93789c858789083e425ce2676e58cdc16219e0ec
     rospy.init_node('rgb')
 
     rgb_sub = message_filters.Subscriber('/camera/color/image_rect_color', Image)
