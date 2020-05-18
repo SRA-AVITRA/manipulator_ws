@@ -27,10 +27,9 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(Boost REQUIRED system filesystem date_time thread)
 
 ##Generate services in the 'srv' folder
-add_service_files(
-FILES
-c_g.srv
-)
+#add_service_files(
+#FILES
+#)
 
 ## Generate messages in the 'msg' folder
  add_message_files(

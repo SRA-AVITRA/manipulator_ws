@@ -6,14 +6,11 @@ from gpd.msg import GraspConfigList
 # global variable to store grasps
 grasps = []
 
-
 # Callback function to receive grasps.
 def callback(msg):
     global grasps
     grasps = msg.grasps
 
-
-# ==================== MAIN ====================
 # Create a ROS node.
 rospy.init_node('get_grasps')
 

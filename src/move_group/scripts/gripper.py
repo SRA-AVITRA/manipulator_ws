@@ -13,32 +13,23 @@ from moveit_commander.conversions import pose_to_list, list_to_pose
 import tf
 import numpy as np
 
-max_load = 0.125 #0.0624
-current_load = 0.0
-open_angle = -0.015 #-2.0
-close_angle = -1.0
+open_angle = -0.015 #-2.0	#angle when gripper is open
+close_angle = -1.0			#angle when gripper is open
 angle = 0
 
-# def State_cb(data):
-#     current_load = data.load
-
-# rospy.Subscriber("/gripper_controller/state", JointState, State_cb)
-pub = rospy.Publisher("/gripper_controller/command", Float64, queue_size=10)
+pub = rospy.Publisher("/gripper_controller/command", Float64, queue_size=10)		#publishes gripper joint angle 
 rospy.init_node('gripper', anonymous=True)
-
 
 def gripper_close():
 	global angle
 	global close_angle
-	# gripper_open()
-	# while((current_load < max_load) & (angle >= -0.84)):
 	while(angle >= close_angle):
 		pub.publish(angle)
 		angle -= 0.009
 
 def gripper_open():
 	global open_angle
-    	pub.publish(open_angle)
+	pub.publish(open_angle)
 
 
 if __name__ == '__main__':

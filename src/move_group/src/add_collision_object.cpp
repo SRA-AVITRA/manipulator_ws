@@ -44,14 +44,14 @@ int main(int argc, char **argv)
     cylinder.primitives.push_back(primitive);
     cylinder.primitive_poses.push_back(pose);
     cylinder.operation = cylinder.ADD;
-		cylinder.header.frame_id = "base_link";
+	cylinder.header.frame_id = "base_link";
     std::vector<moveit_msgs::CollisionObject> collision_objects;
     collision_objects.push_back(cylinder);
 
     // Once all of the objects (in this case just one) have been added to the
     // vector, we tell the planning scene to add our new box
     current_scene.addCollisionObjects(collision_objects);
-		sleep(2);
+	sleep(2);
 
 
     ros::shutdown();

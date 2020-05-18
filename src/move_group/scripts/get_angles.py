@@ -22,9 +22,6 @@ def callback(msg):
 	print(position_array.data)
 
 
-
-
-
 if __name__=='__main__':
 	rospy.init_node('rosserial', anonymous=False)
 	rospy.Subscriber("/joint_states", JointState, callback)

@@ -28,18 +28,16 @@ int var = 0;
 
 static const std::string PLANNING_GROUP = "arm";
 
+// float* transform(float x, float y, float z)
+// {
+// 	float out[3] = {0.0, 0.0, 0.0};
 
+// 	out[0] = round((z + bot_x + off_x - cartesian_off));
+// 	out[1] = round(-(x - off_y ) + play_off_y); 
+// 	out[2] = round(((y - off_z) + bot_z + play_off_z)); 
 
-float* transform(float x, float y, float z)
-{
-	float out[3] = {0.0, 0.0, 0.0};
-
-	out[0] = round((z + bot_x + off_x - cartesian_off));
-	out[1] = round(-(x - off_y ) + play_off_y); 
-	out[2] = round(((y - off_z) + bot_z + play_off_z)); 
-
-	return(out);
-}
+// 	return(out);
+// }
 
 void callback_xy(const move_group::array_float::ConstPtr& data)
 {

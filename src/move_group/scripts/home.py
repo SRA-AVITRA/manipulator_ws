@@ -17,23 +17,20 @@ def change_joint_angles(group, joint_goal):
         joints[i] = joint_goal[i]
     group.go(joints, wait=True)
     group.stop()
-    print "\nJoint angles moved to ", joints
+    print "\nJoint angles moved ", joints
 
+#Initializing moveit functions
 moveit_commander.roscpp_initialize(sys.argv)
-rospy.init_node('home', anonymous=True)
-robot = moveit_commander.RobotCommander()
-scene = moveit_commander.PlanningSceneInterface()
-group_arm = moveit_commander.MoveGroupCommander("arm")
-group_arm.set_planner_id("TRRT")
+rospy.init_node('home',anonymous=True)
+robot = moveit_commander.RobotCommander()           #interface b/w move_group node and the robot
+scene = moveit_commander.PlanningSceneInterface()   #interface for the world around the robot
 
-display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',moveit_msgs.msg.DisplayTrajectory, queue_size=20)
+group_name = "arm"  #Planning group name set in Moveit setup assistant
+group = moveit_commander.MoveGroupCommander(group_name)
 
-planning_frame = group_arm.get_planning_frame()
-group_arm.set_goal_tolerance(0.0001)
-group_arm.set_goal_orientation_tolerance(0.0001)
+group.set_goal_tolerance(0.0005)                    #Tolerence for end-effector position at the goal 
+group.set_goal_orientation_tolerance(0.0001)    #Tolerence for end-effector orientation at the goal
+display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',moveit_msgs.msg.DisplayTrajectory,queue_size=20) #publish trajectories for RViz to visualize
 
-# eef_link = group_arm.get_end_effector_link()
-# group_names = robot.get_group_names()
-
-change_joint_angles(group_arm, [0, 0, 0, 0, 0, 0])
+change_joint_angles(group, [0, 0, 0, 0, 0, 0])
 

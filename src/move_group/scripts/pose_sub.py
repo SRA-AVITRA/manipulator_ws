@@ -12,37 +12,44 @@ from moveit_commander.conversions import pose_to_list
 import tf
 from perception.msg import array_float, array
 
-moveit_commander.roscpp_initialize(sys.argv)
-rospy.init_node('pose_goal',anonymous=True, disable_signals=True)
+#RPY of the end-effector
+roll = 0
+pitch = 0
+yaw = 0 
 
-robot = moveit_commander.RobotCommander()
-
-scene = moveit_commander.PlanningSceneInterface()
-
-group_name = "arm"
-group = moveit_commander.MoveGroupCommander(group_name)
-group.set_goal_tolerance(0.0005)
-display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',moveit_msgs.msg.DisplayTrajectory,queue_size=20)
-
-bot_x = 0.105 #0.18 //Bot centre to manipulator centre
+#Offsets
+#Base origin to shoulder_yaw_motor shaft
+bot_x = 0.105
 bot_y = 0
 bot_z = 0.308 #0.28 
-off_y = 0 #0.46 //Camera centre to manipulator centre
+#Camera origin to shoulder_yaw_motor shaft
+off_y = 0 #0.46
 off_z = 0.194
-off_x = 0.104 #0.19
-play_off_z = 0.1 #0.05 #5
-play_off_y = 0.09 #0.06 #6
-play_off_x = 0.08
-cartesian_off = 0.0 # 0.05
+off_x = 0.104
+#To counter mechanical play
+play_off_x = 0
+play_off_y = 0.09
+play_off_z = 0.1
+#positioning the end-effector slightly behind target in x-axis
+cartesian_off = 0
+#When orientation is not constant, cartesian offset should be set to 0
+count = 0
 
-# 0.685812963577
-#     y: 0.14541848195
-#     z: 0.20425
+#Initializing moveit functions
+moveit_commander.roscpp_initialize(sys.argv)
+rospy.init_node('pose_goal',anonymous=True, disable_signals=True)
+robot = moveit_commander.RobotCommander()               #interface b/w move_group node and the robot
+scene = moveit_commander.PlanningSceneInterface()       #interface for the world around the robot
 
-roll, pitch, yaw = 0, 0,0
+group_name = "arm"  #Planning group name set in Moveit setup assistant
+group = moveit_commander.MoveGroupCommander(group_name)
+
+group.set_goal_tolerance(0.0005)    #Tolerence for end-effector position at the goal 
+display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',moveit_msgs.msg.DisplayTrajectory,queue_size=20) #publish trajectories for RViz to visualize
+
 quat = tf.transformations.quaternion_from_euler(roll,pitch,yaw)
-# 277 428 
-def transform(x,y,z) :
+
+def transform(x,y,z) :         #Computing target coordinates w.r.t base origin
     out = [0,0,0]
     sum_x, sum_y, sum_z = 0,0,0
     out_x = round((z + bot_x + off_x + play_off_x - cartesian_off), 2)
@@ -51,13 +58,12 @@ def transform(x,y,z) :
 
     return out_x, out_y, out_z
     
-count = 0
-        
 
 def callback_xy(data):
     global count
     if count == 0:
         pose_goal = geometry_msgs.msg.Pose()
+        
         pose_goal.orientation.w = quat[3]
         pose_goal.orientation.x = quat[0]
         pose_goal.orientation.y = quat[1]
@@ -68,7 +74,7 @@ def callback_xy(data):
         rospy.loginfo("DATA: %s",pose_goal.position)
         group.set_pose_target(pose_goal)
 
-        plan = group.go(wait=True)
+        plan = group.go(wait=True)      #motion execution
         if(plan):
             print "MOVED"
         
