@@ -34,7 +34,7 @@ class SolverWrapper(object):
     self.imdb = imdb
     self.roidb = roidb
     self.valroidb = valroidb
-    self.output_dir = output_dir
+    self.output_dir = '/content/drive/My Drive/Final_data/weights/'
     self.tbdir = tbdir
     # Simply put '_val' at the end to save the summaries from the validation set
     self.tbvaldir = tbdir + '_val'

@@ -104,7 +104,6 @@ class resnetv1(Network):
       resnet_v1.resnet_v1_block('block2', base_depth=128, num_units=4, stride=2), 
       resnet_v1.resnet_v1_block('block3', base_depth=256, num_units=6, stride=1), 
       resnet_v1.resnet_v1_block('block4', base_depth=512, num_units=3, stride=1), ]
-
     elif self._num_layers == 101:
       blocks = [
         resnet_utils.Block('block1', bottleneck,

@@ -36,7 +36,7 @@ for year in ['2015']:
     __sets[name] = (lambda split=split, year=year: coco(split, year))
 
 # Set up graspRGB_<split> using selective search "fast" mode # added by FC
-graspRGB_devkit_path = '/media/fujenchu/home3/fasterrcnn_grasp/rgb_multibbs_5_5_5_object_tf'
+graspRGB_devkit_path = '/content/grasp_multiObject_multiGrasp/'
 for split in ['train', 'test']:
     name = '{}_{}'.format('graspRGB', split)
     __sets[name] = (lambda split=split: graspRGB(split, graspRGB_devkit_path))

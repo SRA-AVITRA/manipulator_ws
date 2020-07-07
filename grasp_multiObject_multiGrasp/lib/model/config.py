@@ -244,7 +244,7 @@ __C.EPS = 1e-14
 __C.ROOT_DIR = osp.abspath(osp.join(osp.dirname(__file__), '..', '..'))
 
 # Data directory
-__C.DATA_DIR = osp.abspath(os.getenv("HOME")+'manipulator_ws/temp')
+__C.DATA_DIR = osp.abspath(osp.join(__C.ROOT_DIR, 'data'))
 
 # Name (or path to) the matlab executable
 __C.MATLAB = 'matlab'
