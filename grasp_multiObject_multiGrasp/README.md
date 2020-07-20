@@ -54,7 +54,7 @@ cd ../../..
 ```
 
 4. Download pretrained models
-- trained model for grasp on google drive
+- trained model for grasp on [dropbox drive](https://www.dropbox.com/sh/ybwwbj7zzwxxrvw/AAD25r-w08xx9FYKm_pllgf-a?dl=0)
 - put under `output/res50/train/default/`
 
 
